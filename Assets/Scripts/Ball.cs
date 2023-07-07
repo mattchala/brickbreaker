@@ -41,6 +41,7 @@ public class Ball : MonoBehaviour
 
     // MATT: clamps ball's movement speed
     // MATT: i think it works...but im not sure. if the ball slows down at some point, then it doesn't work
+    // MATT: the ball slowed... so this doesn't work.  this is something i or someone else can try to fix later. 
     private void MaintainSpeed()
     {
         this.ball_body.velocity = Vector3.ClampMagnitude(this.ball_body.velocity, speed);
