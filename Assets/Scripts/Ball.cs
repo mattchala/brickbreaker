@@ -5,6 +5,8 @@ public class Ball : MonoBehaviour
     public Rigidbody2D ball_body { get; private set; }
     public float speed = 1000f;
 
+    private CameraShake screen_shake;
+
     // MATT: Unity built-in 
     private void Awake()
     {
@@ -16,6 +18,8 @@ public class Ball : MonoBehaviour
     // MATT: Unity built-in 
     private void Start()
     {
+        screen_shake = GameObject.FindGameObjectWithTag("CameraShake").GetComponent<CameraShake>();
+
         // MATT: instead of immediately calling the set_trajectory function, we wait 1 second and then fire it off
         Invoke(nameof(SetTrajectory), 1f); 
     }
@@ -46,4 +50,16 @@ public class Ball : MonoBehaviour
     {
         this.ball_body.velocity = Vector3.ClampMagnitude(this.ball_body.velocity, speed);
     }
+
+
+    // MATT: handle collisions
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Brick")
+        {
+            Debug.Log("BALL!");
+            screen_shake.BrickShake();
+        }
+    }
+
 }
