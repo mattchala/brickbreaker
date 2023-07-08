@@ -1,5 +1,10 @@
 ﻿using UnityEngine;
 
+
+// TODO : Limit/clamp horizontal angle ball can travel at
+// TODO : Sometimes the ball slows down, figure out how to keep it's velocity consistent
+
+
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D ball_body { get; private set; }
