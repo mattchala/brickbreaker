@@ -8,14 +8,21 @@ public class CameraShake : MonoBehaviour
 
     public void BrickShake()
     {
-        // MATT: Eventually do a random selection function like "SelectBrickShake"
         shake_animator.Play("brick_shake_1");
     }
 
-    // MATT: Unity built-in 
-    private void Start()
+    public void PaddleShake()
     {
-        Invoke(nameof(BrickShake), 1f); 
+        shake_animator.Play("paddle_shake");
     }
 
+    public void LeftWallShake()
+    {
+        shake_animator.Play("left_wall_shake");
+    }
+
+    public void RightWallShake()
+    {
+        shake_animator.Play("right_wall_shake");
+    }
 }
