@@ -5,6 +5,14 @@ public class Paddle : MonoBehaviour
     public Vector2 move_dir { get; private set; }
     public float move_speed = 50f;
     public float max_x_pos = 16f;
+    private CameraShake screen_shake;
+
+
+    // MATT: Unity built-in 
+    private void Start()
+    {
+        screen_shake = GameObject.FindGameObjectWithTag("CameraShake").GetComponent<CameraShake>();
+    }
 
 
     // MATT: Called every frame, not fixed, usually for getting user input
@@ -24,6 +32,17 @@ public class Paddle : MonoBehaviour
         {
             // MATT: can use this to trigger animations, particles, and sound effects when collides with ball
             //Debug.Log("BALL!");
+        }
+
+        // these 2 dont trigger
+        if (collision.gameObject.name == "LeftWall")
+        {
+            screen_shake.LeftWallShake();
+        }
+    
+        if (collision.gameObject.name == "RightWall")
+        {
+            screen_shake.RightWallShake();
         }
     }
 
