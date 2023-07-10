@@ -10,6 +10,7 @@ public class Ball : MonoBehaviour
     public Rigidbody2D ball_body { get; private set; }
     public float speed = 1000f;
     private CameraShake screen_shake;
+    public Animator ball_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
 
 
     // MATT: Unity built-in 
@@ -43,6 +44,9 @@ public class Ball : MonoBehaviour
     // MATT: handle collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
+        ball_animator.Play("bounce_1");
+
         if (collision.gameObject.name == "Brick")
         {
             screen_shake.BrickShake();

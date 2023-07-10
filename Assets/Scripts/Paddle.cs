@@ -6,6 +6,7 @@ public class Paddle : MonoBehaviour
     public float move_speed = 50f;
     public float max_x_pos = 16f;
     private CameraShake screen_shake;
+    public Animator paddle_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
 
 
     // MATT: Unity built-in 
@@ -24,25 +25,25 @@ public class Paddle : MonoBehaviour
     }
 
 
-    // MATT: Handle collisions with paddle, consider doing this with left and right wall as well for triggers for sound and visual feedback
+    // MATT: Handle collisions with paddle, consider doing this with left and right wall as well for triggers for sound and visual feedback like animations and particle effects
     // MATT: This is a unity built in
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.name == "Ball")
         {
-            // MATT: can use this to trigger animations, particles, and sound effects when collides with ball
-            //Debug.Log("BALL!");
+            paddle_animator.Play("ball_collide");
         }
 
-        // these 2 dont trigger
         if (collision.gameObject.name == "LeftWall")
         {
             screen_shake.LeftWallShake();
+            paddle_animator.Play("wall_bump");
         }
     
         if (collision.gameObject.name == "RightWall")
         {
             screen_shake.RightWallShake();
+            paddle_animator.Play("wall_bump");
         }
     }
 

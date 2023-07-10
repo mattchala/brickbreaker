@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraShake : MonoBehaviour
 {
-    public Animator shake_animator;
+    public Animator shake_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
 
     public void BrickShake()
     {
