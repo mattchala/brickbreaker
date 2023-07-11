@@ -8,6 +8,7 @@ public class Brick : MonoBehaviour
     public Color32 orangeish;
     public Color32 greenish;
     public Color32[] brick_states;
+    public Animator brick_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
 
     // MATT: Unity built-in 
     private void Awake()
@@ -45,13 +46,16 @@ public class Brick : MonoBehaviour
         this.brick_health--;
         if (this.brick_health <= 0)
         {
-            // MATT: Eventually, spawn a little sound and particle effect here to
-            // MATT: Maybe add bonus points here for fully destroying the brick
-            this.gameObject.SetActive(false);
+            // TODO spawn destroy particles
+            // TODO play destroy sound
+            brick_animator.Play("brick_destroy");
+            
         }
         else
         {
-            // MATT: do some kind of sound effect and animation and particle effect here too
+            brick_animator.Play("brick_hit");
+            // TODO spawn collision particles
+            // TODO play collision sound
             SetColor();
         }
     }
@@ -61,5 +65,11 @@ public class Brick : MonoBehaviour
     private void SetColor()
     {
         this.brick_sprite.color = this.brick_states[this.brick_health - 1];
+    }
+
+    // MATT: deactivates the brick, called using an Animation Event at the end of the 'brick_destroy' animation
+    private void Deactivate()
+    {
+        this.gameObject.SetActive(false);
     }
 }
