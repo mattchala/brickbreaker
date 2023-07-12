@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     // HASSAN: Loads up Level_1 when the play button is pressed on main menu.
     public void OnClickPlay() 
     {
-        Destroy(gameObject);  // HASSAN: Overrides DontDestroyOnLoad to get rid of main menu on level load
+        Destroy(GameObject.Find("MainMenuCanvas"));  // HASSAN: Overrides DontDestroyOnLoad to get rid of main menu on level load
         NewGame();
     }
 
