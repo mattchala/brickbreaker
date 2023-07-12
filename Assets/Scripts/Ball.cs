@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System;
 
 
 // TODO : Limit/clamp horizontal angle ball can travel at
@@ -11,7 +12,7 @@ public class Ball : MonoBehaviour
     public float speed = 1000f;
     private CameraShake screen_shake;
     public Animator ball_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
-
+    public int minHorizontalAngle = 5;
 
     // MATT: Unity built-in 
     private void Awake()
@@ -44,6 +45,17 @@ public class Ball : MonoBehaviour
     // MATT: handle collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // JOSH: Prevent ball from moving too horizontally
+        float velocity = ball_body.velocity.magnitude;
+        float maxXSpeed = velocity * (float)Math.Cos((minHorizontalAngle * (Math.PI)) / 180);
+
+        if (Math.Abs(ball_body.velocity.x) > maxXSpeed)
+        {
+            int xDir = Math.Sign(ball_body.velocity.x); 
+            int yDir = Math.Sign(ball_body.velocity.y);
+            float minYSpeed = velocity * (float)Math.Sin((minHorizontalAngle * (Math.PI)) / 180);
+            this.ball_body.velocity = new Vector3(xDir * maxXSpeed, yDir * minYSpeed, 0);
+        }
 
         ball_animator.Play("bounce_1");
 
