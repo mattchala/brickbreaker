@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections;
 
 
 // TODO : Limit/clamp horizontal angle ball can travel at
@@ -28,16 +29,19 @@ public class Ball : MonoBehaviour
         screen_shake = GameObject.FindGameObjectWithTag("CameraShake").GetComponent<CameraShake>();
 
         // MATT: instead of immediately calling the set_trajectory function, we wait 1 second and then fire it off
-        Invoke(nameof(SetTrajectory), 1f); 
+        StartCoroutine("ResetBall");
     }
 
 
     // MATT: sets the ball's initial direction in a random angle, but always downward
-    private void SetTrajectory()
+    private IEnumerator ResetBall()
     {
         Vector2 force = Vector2.zero;
         //force.x = Random.Range(-1f, 1f);  // MATT: Comment this line out if you don't want the starting ball trajectory to be randomized
         force.y = -1f;
+        transform.position = new Vector3(0, 0, 0);
+        ball_body.velocity = Vector3.zero;
+        yield return new WaitForSeconds(1f); // JOSH: Wait for 1 second before launching ball
         this.ball_body.AddForce(force.normalized * this.speed);
     }
 
@@ -55,6 +59,12 @@ public class Ball : MonoBehaviour
             int yDir = Math.Sign(ball_body.velocity.y);
             float minYSpeed = velocity * (float)Math.Sin((minHorizontalAngle * (Math.PI)) / 180);
             this.ball_body.velocity = new Vector3(xDir * maxXSpeed, yDir * minYSpeed, 0);
+        }
+
+        if (collision.gameObject.name == "Floor")
+        {
+            StartCoroutine("ResetBall");
+            GameManager.Instance.LoseLife(); 
         }
 
         ball_animator.Play("bounce_1");

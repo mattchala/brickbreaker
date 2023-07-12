@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;  // gives us access to unity library called s
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
 
     public int score = 0;
     public int lives = 3;
@@ -10,7 +11,8 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject);     //  this will persist across loaded and deleted scenes
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject);     //  this will persist across loaded and deleted scenes
     }
 
     private void Start()
@@ -45,6 +47,18 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level_" + selected_level);
     }
 
+    public void LoseLife()
+    {
+        lives -= 1;
+        Debug.Log("Life lost");
+        LifeManager.Instance.UpdateLives(lives);
+        if (lives <= 0)
+        {
+            Debug.Log("Game Over");
+            // Game over
+        }
+    }
+    
     // HASSAN: Game app quits when exit button is pressed on main menu
     public void OnClickExit() 
     {
