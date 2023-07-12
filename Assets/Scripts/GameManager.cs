@@ -8,13 +8,25 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public int level = 1;
 
+    public bool isGlobal = true;
+
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);     //  this will persist across loaded and deleted scenes
+        DontDestroyOnLoad(gameObject);     //  this will persist across loaded and deleted scenes
     }
 
     private void Start()
     {
+        if (isGlobal) 
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
+
+    // HASSAN: Loads up Level_1 when the play button is pressed on main menu.
+    public void OnClickPlay() 
+    {
+        Destroy(gameObject);  // Overrides DontDestroyOnLoad to get rid of main menu on level load
         NewGame();
     }
 
@@ -30,6 +42,13 @@ public class GameManager : MonoBehaviour
     {
         this.level = selected_level;
         SceneManager.LoadScene("Level_" + selected_level);
+    }
+
+    // HASSAN: Game app quits when exit button is pressed on main menu
+    public void OnClickExit() 
+    {
+        Debug.Log("EXIT");  // Only for debug purposes to verify exit functionality in editor
+        Application.Quit();
     }
 
 }
