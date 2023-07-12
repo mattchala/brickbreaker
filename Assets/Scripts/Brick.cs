@@ -49,7 +49,7 @@ public class Brick : MonoBehaviour
             // TODO spawn destroy particles
             // TODO play destroy sound
             brick_animator.Play("brick_destroy");
-            
+            ScoreManager.Instance.AddScore(1);
         }
         else
         {
