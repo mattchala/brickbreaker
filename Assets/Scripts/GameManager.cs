@@ -17,6 +17,19 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        // HASSAN: Load up main menu if current scene is Global
+        Scene loadedScene = SceneManager.GetActiveScene();
+        string scene = loadedScene.name;
+        if (scene == "Global") 
+        {
+            SceneManager.LoadScene("Menu");
+        }
+    }
+
+    // HASSAN: Loads up Level_1 when the play button is pressed on main menu.
+    public void OnClickPlay() 
+    {
+        Destroy(GameObject.Find("MainMenuCanvas"));  // HASSAN: Overrides DontDestroyOnLoad to get rid of main menu on level load
         NewGame();
     }
 
@@ -45,4 +58,12 @@ public class GameManager : MonoBehaviour
             // Game over
         }
     }
+    
+    // HASSAN: Game app quits when exit button is pressed on main menu
+    public void OnClickExit() 
+    {
+        Debug.Log("EXIT");  // HASSAN: Only for debug purposes to verify exit functionality in editor
+        Application.Quit();
+    }
+
 }
