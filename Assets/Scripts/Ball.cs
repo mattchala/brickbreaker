@@ -2,18 +2,14 @@
 using System;
 using System.Collections;
 
-
-// TODO : Limit/clamp horizontal angle ball can travel at
-// TODO : Sometimes the ball slows down, figure out how to keep it's velocity consistent
-
-
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D ball_body { get; private set; }
-    public float speed = 1000f;
+    public float speed = 20f;
     private CameraShake screen_shake;
     public Animator ball_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
-    public int minHorizontalAngle = 5;
+    public int minHorizontalAngle = 25; // MATT: was 5, trying higher val
+    private bool ball_is_moving = false;
 
     // MATT: Unity built-in 
     private void Awake()
@@ -33,16 +29,11 @@ public class Ball : MonoBehaviour
     }
 
 
-    // MATT: sets the ball's initial direction in a random angle, but always downward
-    private IEnumerator ResetBall()
+    // MATT: Unity built-in
+    private void Update()
     {
-        Vector2 force = Vector2.zero;
-        //force.x = Random.Range(-1f, 1f);  // MATT: Comment this line out if you don't want the starting ball trajectory to be randomized
-        force.y = -1f;
-        transform.position = new Vector3(0, 0, 0);
-        ball_body.velocity = Vector3.zero;
-        yield return new WaitForSeconds(1f); // JOSH: Wait for 1 second before launching ball
-        this.ball_body.AddForce(force.normalized * this.speed);
+        // MATT: check every frame and clamp velocity to speed, this fixed the issue in an error-reproduction level i created
+        ClampVelocity();
     }
 
 
@@ -50,16 +41,7 @@ public class Ball : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // JOSH: Prevent ball from moving too horizontally
-        float velocity = ball_body.velocity.magnitude;
-        float maxXSpeed = velocity * (float)Math.Cos((minHorizontalAngle * (Math.PI)) / 180);
-
-        if (Math.Abs(ball_body.velocity.x) > maxXSpeed)
-        {
-            int xDir = Math.Sign(ball_body.velocity.x); 
-            int yDir = Math.Sign(ball_body.velocity.y);
-            float minYSpeed = velocity * (float)Math.Sin((minHorizontalAngle * (Math.PI)) / 180);
-            this.ball_body.velocity = new Vector3(xDir * maxXSpeed, yDir * minYSpeed, 0);
-        }
+        CalculateMaxAngle();
 
         if (collision.gameObject.name == "Floor")
         {
@@ -77,6 +59,56 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.name == "Paddle")
         {
             screen_shake.PaddleShake();
+        }
+    }
+
+
+    // MATT: sets the ball's initial direction in a random angle, but always downward
+    private IEnumerator ResetBall()
+    {
+        ball_is_moving = false;
+        Vector2 force = Vector2.zero;
+        //force.x = Random.Range(-1f, 1f);  // MATT: Comment this line out if you don't want the starting ball trajectory to be randomized
+        force.y = -1f;
+        transform.position = new Vector3(0, 0, 0);
+        ball_body.velocity = Vector3.zero;
+        yield return new WaitForSeconds(1f); // JOSH: Wait for 1 second before launching ball
+        this.ball_body.AddForce(force.normalized * this.speed);
+        yield return new WaitForSeconds(.1f); // MATT: waits for velocity.y to not equal 0 before setting ball_is_moving to true 
+        ball_is_moving = true;
+
+    }
+
+
+    private void CalculateMaxAngle()
+    {
+        ball_is_moving = false; // MATT: stops 
+        float velocity = ball_body.velocity.magnitude;
+        float maxXSpeed = velocity * (float)Math.Cos((minHorizontalAngle * (Math.PI)) / 180);
+
+        if (Math.Abs(ball_body.velocity.x) > maxXSpeed)
+        {
+            int xDir = Math.Sign(ball_body.velocity.x); 
+            int yDir = Math.Sign(ball_body.velocity.y);
+            float minYSpeed = velocity * (float)Math.Sin((minHorizontalAngle * (Math.PI)) / 180);
+            this.ball_body.velocity = new Vector3(xDir * maxXSpeed, yDir * minYSpeed, 0);
+        }
+        ball_is_moving = true;
+    }
+
+
+    // MATT: clamps the velocity of the ball to avoid the occasional slow down bug when the ball rapidly bounces
+    private void ClampVelocity()
+    {
+        if (ball_is_moving)
+        {
+            if (this.ball_body.velocity.y == 0)
+            {
+                Vector3 vel = this.ball_body.velocity;
+                vel.y = 1;  // MATT: set a 1 instead of -1 so will go upward to give player a chance to react
+                this.ball_body.velocity = vel;
+            }
+            this.ball_body.velocity = this.ball_body.velocity.normalized * speed;
         }
     }
 
