@@ -5,10 +5,10 @@ using System.Collections;
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D ball_body { get; private set; }
-    public float speed = 1000f;
+    public float speed = 20f;
     private CameraShake screen_shake;
     public Animator ball_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
-    public int minHorizontalAngle = 25; // was 5, try something severe
+    public int minHorizontalAngle = 25; // MATT: was 5, trying higher val
     private bool ball_is_moving = false;
 
     // MATT: Unity built-in 
