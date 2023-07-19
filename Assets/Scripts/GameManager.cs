@@ -83,6 +83,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void OnClickHighScores()
+    {
+        SceneManager.LoadScene("High_Scores_Menu");
+    }
+
     public void OnClickSettings()
     {
         SceneManager.LoadScene("Settings");
