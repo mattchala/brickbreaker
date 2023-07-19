@@ -24,6 +24,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Selection.unity
     guid: 0f22e41cf69e340f6b3f95c594c99e3a
   - enabled: 1
+    path: Assets/Scenes/Settings.unity
+    guid: 61bcb26e7bee84e209dc490cd14921ef
+  - enabled: 1
+    path: Assets/Scenes/Help.unity
+    guid: 6179f87c39a1a4c5898a7aef3d9d6997
+  - enabled: 1
     path: Assets/Scenes/Level_Complete.unity
     guid: fbf54b5a573f34013963af7b524d1daf
+  - enabled: 1
+    path: Assets/Scenes/Ball_Slow_Down_Reproduction.unity
+    guid: cd5092aa687c33d40b96151cafe9b2dc
   m_configObjects: {}

@@ -500,7 +500,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 317, y: -44}
+  m_AnchoredPosition: {x: 316.99997, y: -44}
   m_SizeDelta: {x: 29.458, y: 42.937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &220524832
@@ -826,7 +826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 116, y: 106}
+  m_AnchoredPosition: {x: 115.99997, y: 106}
   m_SizeDelta: {x: 360.41, y: 24.478}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &284791770
@@ -1512,6 +1512,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b92aea4d3f3c3f84c95ec0377abb1ae5, type: 3}
+--- !u!20 &642670080 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 8695488508602518721, guid: b92aea4d3f3c3f84c95ec0377abb1ae5,
+    type: 3}
+  m_PrefabInstance: {fileID: 642670079}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &673991017
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1755,7 +1761,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 316, y: 31}
+  m_AnchoredPosition: {x: 315.99997, y: 31}
   m_SizeDelta: {x: 29.458, y: 42.937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &773102987
@@ -1950,7 +1956,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1042457495
 Canvas:
   m_ObjectHideFlags: 0
@@ -1960,10 +1966,10 @@ Canvas:
   m_GameObject: {fileID: 1042457491}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_RenderMode: 0
+  m_Camera: {fileID: 642670080}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -1982,8 +1988,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042457491}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.114173, y: 0.114173, z: 0.114173}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1307864169}
@@ -1997,8 +2003,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1030, y: 513}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!1 &1095872826
 GameObject:
   m_ObjectHideFlags: 0
@@ -2083,7 +2089,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1955578432}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.980536
+  m_Size: 0.9999967
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2383,7 +2389,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -8}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307864170
@@ -2466,7 +2472,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0001545567}
+  m_AnchoredPosition: {x: 0, y: 0.000022952949}
   m_SizeDelta: {x: 0, y: 332.95}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1381312932
@@ -2952,7 +2958,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1782889658}
   m_HandleRect: {fileID: 1782889657}
   m_Direction: 0
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
@@ -3665,7 +3671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 318, y: 104}
+  m_AnchoredPosition: {x: 317.99997, y: 104}
   m_SizeDelta: {x: 29.458, y: 42.937}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2116910807
