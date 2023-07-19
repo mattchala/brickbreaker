@@ -9,10 +9,13 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public int level = 1;
 
+    public Brick[] bricks { get; private set; }
+
     private void Awake()
     {
         Instance = this;
         DontDestroyOnLoad(this.gameObject);     //  this will persist across loaded and deleted scenes
+        SceneManager.sceneLoaded += OnLevelLoaded;
     }
 
     private void Start()
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
         NewGame();
     }
 
-    private void NewGame()
+    public void NewGame()
     {
         // reset score, lives, and start at new level
         this.score = 0;
@@ -41,11 +44,37 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Level Selection");
     }
 
-    private void LoadLevel(int selected_level)
+    public static void LoadLevel(int selected_level)
     {
-        this.level = selected_level;
+        // this.level = selected_level;
         SceneManager.LoadScene("Level_" + selected_level);
     }
+
+    private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Instance.bricks = FindObjectsOfType<Brick>();
+        Debug.Log(Instance.bricks);
+    }
+
+    public bool Cleared()
+    {
+        Debug.Log("CHECKING CLEARED");
+        for (int i=0; i < Instance.bricks.Length; i++)
+        {
+            Debug.Log(Instance.bricks[i].ToString() + Instance.bricks[i].gameObject.activeInHierarchy.ToString());
+            if (Instance.bricks[i].gameObject.activeInHierarchy)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // public static void LevelCompleted()
+    // {
+    //     NewGame();
+    // }
+    
 
     public void LoseLife()
     {

@@ -256,6 +256,11 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7958493845221394904, guid: d90230ee8bb934b22b843fdc590a5b4d,
+        type: 3}
+      propertyPath: level
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3184456128518957711, guid: d90230ee8bb934b22b843fdc590a5b4d, type: 3}
@@ -920,6 +925,11 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7958493845221394904, guid: d90230ee8bb934b22b843fdc590a5b4d,
+        type: 3}
+      propertyPath: level
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3184456128518957711, guid: d90230ee8bb934b22b843fdc590a5b4d, type: 3}
@@ -1136,6 +1146,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958493845221394904, guid: d90230ee8bb934b22b843fdc590a5b4d,
+        type: 3}
+      propertyPath: level
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -1704,6 +1719,11 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7958493845221394904, guid: d90230ee8bb934b22b843fdc590a5b4d,
+        type: 3}
+      propertyPath: level
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3184456128518957711, guid: d90230ee8bb934b22b843fdc590a5b4d, type: 3}
@@ -2102,6 +2122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7958493845221394904, guid: d90230ee8bb934b22b843fdc590a5b4d,
+        type: 3}
+      propertyPath: level
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:

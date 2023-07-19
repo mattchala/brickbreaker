@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;  // gives us access to unity library called scene manager we can use to load / change levels and scenes
 
 public class Brick : MonoBehaviour
 {
@@ -34,9 +35,13 @@ public class Brick : MonoBehaviour
     {
         if (collision.gameObject.name == "Ball")
         {
+
             HandleHit();
+
         }    
     }
+
+
 
 
     // MATT: handles outcomes for detected collisions with the ball
@@ -58,6 +63,7 @@ public class Brick : MonoBehaviour
             // TODO play collision sound
             SetColor();
         }
+
     }
 
 
@@ -71,5 +77,10 @@ public class Brick : MonoBehaviour
     private void Deactivate()
     {
         this.gameObject.SetActive(false);
+        if (GameManager.Instance.Cleared())
+        {
+            SceneManager.LoadScene("Menu");
+            // GameManager.Instance.NewGame();
+        }
     }
 }
