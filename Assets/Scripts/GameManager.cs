@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);     //  this will persist across loaded and deleted scenes
         SceneManager.sceneLoaded += OnLevelLoaded;
     }
 
@@ -41,7 +40,7 @@ public class GameManager : MonoBehaviour
         // reset score, lives, and start at new level
         this.score = 0;
         this.lives = 3;
-        SceneManager.LoadScene("Level Selection");
+        SceneManager.LoadScene("Level_Selection");
     }
 
     public static void LoadLevel(int selected_level)
