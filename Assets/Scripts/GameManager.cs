@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);     //  this will persist across loaded and deleted scenes
     }
 
     private void Start()
@@ -57,6 +56,21 @@ public class GameManager : MonoBehaviour
             Debug.Log("Game Over");
             // Game over
         }
+    }
+
+    public void OnClickSettings()
+    {
+        SceneManager.LoadScene("Settings");
+    }
+
+    public void OnClickHelp()
+    {
+        SceneManager.LoadScene("Help");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
     }
     
     // HASSAN: Game app quits when exit button is pressed on main menu
