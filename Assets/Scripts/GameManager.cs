@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        DontDestroyOnLoad(this.gameObject);     //  this will persist across loaded and deleted scenes
         SceneManager.sceneLoaded += OnLevelLoaded;
     }
 
