@@ -17,4 +17,19 @@ public class LevelSelection : MonoBehaviour
         SceneManager.LoadScene("Level_" + level);
         
     }
+
+    public void ReturnToMenu(){
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void RestartLevel(){
+        GameManager.Instance.score = 0;
+        GameManager.Instance.lives = 3;
+        SceneManager.LoadScene("Level_" + (GameManager.Instance.level).ToString());
+    }
+
+    public void NextLevel(){
+        GameManager.Instance.level ++;
+        SceneManager.LoadScene("Level_" + (GameManager.Instance.level).ToString());
+    }
 }

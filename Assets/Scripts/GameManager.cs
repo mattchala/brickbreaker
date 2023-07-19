@@ -53,15 +53,12 @@ public class GameManager : MonoBehaviour
     private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
         Instance.bricks = FindObjectsOfType<Brick>();
-        Debug.Log(Instance.bricks);
     }
 
     public bool Cleared()
     {
-        Debug.Log("CHECKING CLEARED");
         for (int i=0; i < Instance.bricks.Length; i++)
         {
-            Debug.Log(Instance.bricks[i].ToString() + Instance.bricks[i].gameObject.activeInHierarchy.ToString());
             if (Instance.bricks[i].gameObject.activeInHierarchy)
             {
                 return false;

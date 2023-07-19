@@ -362,8 +362,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 183}
-  m_SizeDelta: {x: 210.6, y: 42.19}
+  m_AnchoredPosition: {x: 0, y: 169}
+  m_SizeDelta: {x: 178.33, y: 47.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691960316
 MonoBehaviour:
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Play Again?
+  m_text: You Won!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -547,7 +547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!81 &1091617756
 AudioListener:
   m_ObjectHideFlags: 0
@@ -633,7 +633,7 @@ PrefabInstance:
     - target: {fileID: 3534113571072300952, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}
       propertyPath: m_Name
-      value: LevelSelectButton (2)
+      value: MainMenuButton
       objectReference: {fileID: 0}
     - target: {fileID: 5948265152923753863, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}
@@ -780,6 +780,11 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7434083500081819440, guid: d90230ee8bb934b22b843fdc590a5b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReturnToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 7958493845221394904, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}
       propertyPath: level
@@ -807,7 +812,7 @@ PrefabInstance:
     - target: {fileID: 3534113571072300952, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}
       propertyPath: m_Name
-      value: LevelSelectButton (1)
+      value: NextLevelButton
       objectReference: {fileID: 0}
     - target: {fileID: 5948265152923753863, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}
@@ -954,6 +959,11 @@ PrefabInstance:
       propertyPath: m_Colors.m_NormalColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7434083500081819440, guid: d90230ee8bb934b22b843fdc590a5b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: NextLevel
+      objectReference: {fileID: 0}
     - target: {fileID: 7958493845221394904, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}
       propertyPath: level
@@ -981,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 3534113571072300952, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}
       propertyPath: m_Name
-      value: LevelSelectButton
+      value: RestartButton
       objectReference: {fileID: 0}
     - target: {fileID: 5948265152923753863, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}
@@ -1142,6 +1152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.9339623
+      objectReference: {fileID: 0}
+    - target: {fileID: 7434083500081819440, guid: d90230ee8bb934b22b843fdc590a5b4d,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RestartLevel
       objectReference: {fileID: 0}
     - target: {fileID: 7958493845221394904, guid: d90230ee8bb934b22b843fdc590a5b4d,
         type: 3}

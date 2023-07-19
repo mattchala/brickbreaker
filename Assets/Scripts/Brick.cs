@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;  // gives us access to unity library called scene manager we can use to load / change levels and scenes
+using UnityEngine.SceneManagement; 
 
 public class Brick : MonoBehaviour
 {
@@ -79,7 +79,8 @@ public class Brick : MonoBehaviour
         this.gameObject.SetActive(false);
         if (GameManager.Instance.Cleared())
         {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("Level Complete");
+            // SceneManager.LoadScene("Menu");
             // GameManager.Instance.NewGame();
         }
     }
