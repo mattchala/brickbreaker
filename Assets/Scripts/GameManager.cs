@@ -84,6 +84,21 @@ public class GameManager : MonoBehaviour
             // Game over
         }
     }
+
+    public void OnClickSettings()
+    {
+        SceneManager.LoadScene("Settings");
+    }
+
+    public void OnClickHelp()
+    {
+        SceneManager.LoadScene("Help");
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Menu");
+    }
     
     // HASSAN: Game app quits when exit button is pressed on main menu
     public void OnClickExit() 
