@@ -7,7 +7,8 @@ public class Paddle : MonoBehaviour
     public float max_x_pos = 16f;
     private CameraShake screen_shake;
     public Animator paddle_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
-
+    public ParticleSystem smoke;
+    public ParticleSystem sparks;
 
     // MATT: Unity built-in 
     private void Start()
@@ -38,12 +39,14 @@ public class Paddle : MonoBehaviour
         {
             screen_shake.LeftWallShake();
             paddle_animator.Play("wall_bump");
+            EmitParticles(collision);
         }
     
         if (collision.gameObject.name == "RightWall")
         {
             screen_shake.RightWallShake();
             paddle_animator.Play("wall_bump");
+            EmitParticles(collision);
         }
     }
 
@@ -77,4 +80,14 @@ public class Paddle : MonoBehaviour
             this.transform.position += Vector3.right * this.move_dir.x * move_speed * Time.deltaTime;
         }
     }
+
+    // MATT: sets the position of the child particles to the position of the the point of contact and them emits them
+    private void EmitParticles(Collision2D collision)
+    {
+        smoke.transform.position = collision.GetContact(0).point;
+        sparks.transform.position = collision.GetContact(0).point;
+        smoke.Play();
+        sparks.Play();
+    }
+
 }
