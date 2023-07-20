@@ -9,6 +9,8 @@ public class Paddle : MonoBehaviour
     public Animator paddle_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
     public ParticleSystem smoke;
     public ParticleSystem sparks;
+    public ParticleSystem dust_left;
+    public ParticleSystem dust_right;
 
     // MATT: Unity built-in 
     private void Start()
@@ -58,10 +60,12 @@ public class Paddle : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             this.move_dir += Vector2.left;
+            dust_left.Play();
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             this.move_dir += Vector2.right;
+            dust_right.Play();
         }
         if (!(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) &&
             !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
