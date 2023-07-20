@@ -10,6 +10,9 @@ public class Brick : MonoBehaviour
     public Color32 greenish;
     public Color32[] brick_states;
     public Animator brick_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
+    public ParticleSystem smoke;
+    public ParticleSystem sparks;
+    public ParticleSystem confetti;
 
     // MATT: Unity built-in 
     private void Awake()
@@ -42,8 +45,6 @@ public class Brick : MonoBehaviour
     }
 
 
-
-
     // MATT: handles outcomes for detected collisions with the ball
     private void HandleHit()
     {
@@ -51,15 +52,14 @@ public class Brick : MonoBehaviour
         this.brick_health--;
         if (this.brick_health <= 0)
         {
-            // TODO spawn destroy particles
             // TODO play destroy sound
+            EmitParticles();
             brick_animator.Play("brick_destroy");
             ScoreManager.Instance.AddScore(1);
         }
         else
         {
             brick_animator.Play("brick_hit");
-            // TODO spawn collision particles
             // TODO play collision sound
             SetColor();
         }
@@ -84,4 +84,13 @@ public class Brick : MonoBehaviour
             // GameManager.Instance.NewGame();
         }
     }
+
+    // MATT: emits three different particle systems from brick's local 0 position
+    private void EmitParticles()
+    {
+        smoke.Play();
+        sparks.Play();
+        confetti.Play();
+    }
+
 }
