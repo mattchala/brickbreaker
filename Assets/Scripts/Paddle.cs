@@ -31,19 +31,35 @@ public class Paddle : MonoBehaviour
     {
         if (collision.gameObject.name == "Ball")
         {
-            paddle_animator.Play("ball_collide");
+            if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
+            {
+                paddle_animator.Play("ball_collide");
+            }
         }
 
         if (collision.gameObject.name == "LeftWall")
         {
-            screen_shake.LeftWallShake();
-            paddle_animator.Play("wall_bump");
+
+            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1)
+            {
+                screen_shake.LeftWallShake();
+            }
+            if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
+            {
+                paddle_animator.Play("wall_bump");
+            }
         }
     
         if (collision.gameObject.name == "RightWall")
         {
-            screen_shake.RightWallShake();
-            paddle_animator.Play("wall_bump");
+            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1)
+            {
+                screen_shake.RightWallShake();
+            }
+            if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
+            {
+                paddle_animator.Play("wall_bump");
+            }
         }
     }
 
