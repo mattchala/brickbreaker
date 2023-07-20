@@ -10,6 +10,8 @@ public class Ball : MonoBehaviour
     public Animator ball_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
     public int minHorizontalAngle = 25; // MATT: was 5, trying higher val
     private bool ball_is_moving = false;
+    public ParticleSystem smoke;
+    public ParticleSystem sparks;
 
     // MATT: Unity built-in 
     private void Awake()
@@ -42,6 +44,8 @@ public class Ball : MonoBehaviour
     {
         // JOSH: Prevent ball from moving too horizontally
         CalculateMaxAngle();
+
+        EmitParticles(collision);
 
         if (collision.gameObject.name == "Floor")
         {
@@ -82,7 +86,7 @@ public class Ball : MonoBehaviour
 
     private void CalculateMaxAngle()
     {
-        ball_is_moving = false; // MATT: stops 
+        ball_is_moving = false; // MATT: stops Update function modifying the velocity
         float velocity = ball_body.velocity.magnitude;
         float maxXSpeed = velocity * (float)Math.Cos((minHorizontalAngle * (Math.PI)) / 180);
 
@@ -93,7 +97,7 @@ public class Ball : MonoBehaviour
             float minYSpeed = velocity * (float)Math.Sin((minHorizontalAngle * (Math.PI)) / 180);
             this.ball_body.velocity = new Vector3(xDir * maxXSpeed, yDir * minYSpeed, 0);
         }
-        ball_is_moving = true;
+        ball_is_moving = true; // MATTL starts Update function modifying the velocity
     }
 
 
@@ -110,6 +114,15 @@ public class Ball : MonoBehaviour
             }
             this.ball_body.velocity = this.ball_body.velocity.normalized * speed;
         }
+    }
+
+    // MATT: sets the position of the child particles to the position of the the point of contact and them emits them
+    private void EmitParticles(Collision2D collision)
+    {
+        smoke.transform.position = collision.GetContact(0).point;
+        sparks.transform.position = collision.GetContact(0).point;
+        smoke.Play();
+        sparks.Play();
     }
 
 }
