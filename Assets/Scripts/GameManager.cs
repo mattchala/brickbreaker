@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
         Instance.bricks = FindObjectsOfType<Brick>();
     }
 
-    public bool Cleared()
+    public bool CheckCompleted()
     {
         for (int i=0; i < Instance.bricks.Length; i++)
         {
@@ -80,6 +80,7 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Game Over");
             // Game over
+            SceneManager.LoadScene("Game_Over");
         }
     }
 

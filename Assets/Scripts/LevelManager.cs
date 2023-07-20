@@ -14,8 +14,8 @@ public class LevelSelection : MonoBehaviour
     // }
 
     public void OpenScene() {
+        GameManager.Instance.level = level;
         SceneManager.LoadScene("Level_" + level);
-        
     }
 
     public void ReturnToMenu(){
