@@ -51,11 +51,11 @@ public class SettingsController : MonoBehaviour
 
     public void AnimationsSlider(float animations)
     {
-        animationsTextUI.text = animations.ToString();
+        animationsTextUI.text = animations == 1.0 ? "On" : "Off";
     }
 
     public void ScreenShakeSlider(float screenShake)
     {
-        screenShakeTextUI.text = screenShake.ToString();
+        screenShakeTextUI.text = screenShake == 1.0 ? "On" : "Off";
     }
 }
