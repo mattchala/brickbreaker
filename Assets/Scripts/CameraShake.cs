@@ -23,4 +23,9 @@ public class CameraShake : MonoBehaviour
     {
         shake_animator.Play("right_wall_shake");
     }
+
+    public void LifeLostShake()
+    {
+        shake_animator.Play("life_lost");
+    }
 }

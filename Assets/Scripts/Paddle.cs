@@ -7,7 +7,10 @@ public class Paddle : MonoBehaviour
     public float max_x_pos = 16f;
     private CameraShake screen_shake;
     public Animator paddle_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
-
+    public ParticleSystem smoke;
+    public ParticleSystem sparks;
+    public ParticleSystem dust_left;
+    public ParticleSystem dust_right;
 
     // MATT: Unity built-in 
     private void Start()
@@ -39,7 +42,7 @@ public class Paddle : MonoBehaviour
 
         if (collision.gameObject.name == "LeftWall")
         {
-
+            EmitParticles(collision);
             if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1)
             {
                 screen_shake.LeftWallShake();
@@ -52,6 +55,7 @@ public class Paddle : MonoBehaviour
     
         if (collision.gameObject.name == "RightWall")
         {
+            EmitParticles(collision);
             if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1)
             {
                 screen_shake.RightWallShake();
@@ -71,10 +75,12 @@ public class Paddle : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             this.move_dir += Vector2.left;
+            dust_left.Play();
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             this.move_dir += Vector2.right;
+            dust_right.Play();
         }
         if (!(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) &&
             !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
@@ -93,4 +99,14 @@ public class Paddle : MonoBehaviour
             this.transform.position += Vector3.right * this.move_dir.x * move_speed * Time.deltaTime;
         }
     }
+
+    // MATT: sets the position of the child particles to the position of the the point of contact and them emits them
+    private void EmitParticles(Collision2D collision)
+    {
+        smoke.transform.position = collision.GetContact(0).point;
+        sparks.transform.position = collision.GetContact(0).point;
+        smoke.Play();
+        sparks.Play();
+    }
+
 }
