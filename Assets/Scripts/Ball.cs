@@ -53,14 +53,18 @@ public class Ball : MonoBehaviour
             GameManager.Instance.LoseLife(); 
         }
 
-        ball_animator.Play("bounce_1");
+        if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
+        {
+            ball_animator.Play("bounce_1");
+        }
 
-        if (collision.gameObject.name == "Brick")
+
+        if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Brick")
         {
             screen_shake.BrickShake();
         }
         
-        if (collision.gameObject.name == "Paddle")
+        if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Paddle")
         {
             screen_shake.PaddleShake();
         }
