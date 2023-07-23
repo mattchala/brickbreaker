@@ -77,12 +77,7 @@ public class Brick : MonoBehaviour
     private void Deactivate()
     {
         this.gameObject.SetActive(false);
-        if (GameManager.Instance.CheckCompleted())
-        {
-            SceneManager.LoadScene("Level_Complete");
-            // SceneManager.LoadScene("Menu");
-            // GameManager.Instance.NewGame();
-        }
+        GameManager.Instance.levelComplete();
     }
 
     // MATT: emits three different particle systems from brick's local 0 position

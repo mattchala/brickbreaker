@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public int level = 1;
 
+
     public Brick[] bricks { get; private set; }
 
     private void Awake()
@@ -53,7 +54,8 @@ public class GameManager : MonoBehaviour
         Instance.bricks = FindObjectsOfType<Brick>();
     }
 
-    public bool CheckCompleted()
+    // MICHAEL: returns true if all bricks in level are deactivated
+    public bool CheckBricks()
     {
         for (int i=0; i < Instance.bricks.Length; i++)
         {
@@ -65,11 +67,16 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
-    // public static void LevelCompleted()
-    // {
-    //     NewGame();
-    // }
-    
+    public void levelComplete()
+    {    
+        if (GameManager.Instance.CheckBricks())
+        {
+            LevelManager.unlockedProgress = Mathf.Max(LevelManager.unlockedProgress, GameManager.Instance.level+1);
+            Debug.Log(LevelManager.unlockedProgress);
+            SceneManager.LoadScene("Level_Complete");
+        }
+    }
+
 
     public void LoseLife()
     {
@@ -80,9 +87,11 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Game Over");
             // Game over
-            SceneManager.LoadScene("Game_Over");
+            // SceneManager.LoadScene("Game_Over");
         }
     }
+
+
 
     public void OnClickHighScores()
     {

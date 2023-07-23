@@ -47,4 +47,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ball_Slow_Down_Reproduction.unity
     guid: cd5092aa687c33d40b96151cafe9b2dc
+  - enabled: 1
+    path: Assets/Scenes/Game_Over.unity
+    guid: fc7f2d66995154c1fb548b28f3ffcc82
   m_configObjects: {}

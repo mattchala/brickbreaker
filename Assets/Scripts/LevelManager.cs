@@ -2,16 +2,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class LevelSelection : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
     public int level;
-    // public Text levelText;
-    
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-    //     levelText.text = level.ToString();
-    // }
+
+    // public static LevelManager Instance;
+
+    static public int unlockedProgress=1;
 
     public void OpenScene() {
         GameManager.Instance.level = level;
@@ -21,7 +18,6 @@ public class LevelSelection : MonoBehaviour
     public void ReturnToMenu(){
         SceneManager.LoadScene("Menu");
     }
-
     public void RestartLevel(){
         GameManager.Instance.score = 0;
         GameManager.Instance.lives = 3;
