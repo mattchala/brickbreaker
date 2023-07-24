@@ -79,6 +79,7 @@ public class Brick : MonoBehaviour
         this.gameObject.SetActive(false);
         if (GameManager.Instance.CheckCompleted())
         {
+            GameManager.Instance.UpdateHighScore();
             SceneManager.LoadScene("Level_Complete");
             // SceneManager.LoadScene("Menu");
             // GameManager.Instance.NewGame();

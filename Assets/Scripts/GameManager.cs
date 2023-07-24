@@ -70,7 +70,6 @@ public class GameManager : MonoBehaviour
     //     NewGame();
     // }
     
-
     public void LoseLife()
     {
         lives -= 1;
@@ -78,9 +77,34 @@ public class GameManager : MonoBehaviour
         LifeManager.Instance.UpdateLives(lives);
         if (lives <= 0)
         {
+            UpdateHighScore();
             Debug.Log("Game Over");
             // Game over
             SceneManager.LoadScene("Game_Over");
+        }
+    }
+
+    public void UpdateHighScore()
+    {
+        // Get player name
+        string name = PlayerPrefs.GetString("PlayerName");
+
+        // Check what level was being played
+        Scene loadedScene = SceneManager.GetActiveScene();
+        string scene = loadedScene.name;
+        
+        // Update high score table for specified level
+        if (scene == "Level_1") 
+        {
+            L1HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
+        }
+        else if (scene == "Level_2")
+        {
+            L2HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
+        }
+        else if (scene == "Level_3")
+        {
+            L3HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
         }
     }
 
