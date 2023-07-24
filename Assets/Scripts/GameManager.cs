@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviour
         {
             LevelManager.unlockedProgress = Mathf.Max(LevelManager.unlockedProgress, GameManager.Instance.level+1);
             Debug.Log(LevelManager.unlockedProgress);
+            UpdateHighScore();
             SceneManager.LoadScene("Level_Complete");
         }
     }
-
 
     public void LoseLife()
     {
@@ -87,11 +87,34 @@ public class GameManager : MonoBehaviour
         {
             Debug.Log("Game Over");
             // Game over
-            // SceneManager.LoadScene("Game_Over");
+            UpdateHighScore();
+            SceneManager.LoadScene("Game_Over");
         }
     }
 
+     public void UpdateHighScore()
+    {
+        // Get player name
+        string name = PlayerPrefs.GetString("PlayerName");
 
+        // Check what level was being played
+        Scene loadedScene = SceneManager.GetActiveScene();
+        string scene = loadedScene.name;
+        
+        // Update high score table for specified level
+        if (scene == "Level_1") 
+        {
+            L1HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
+        }
+        else if (scene == "Level_2")
+        {
+            L2HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
+        }
+        else if (scene == "Level_3")
+        {
+            L3HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
+        }
+    }
 
     public void OnClickHighScores()
     {
