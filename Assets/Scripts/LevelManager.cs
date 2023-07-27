@@ -14,10 +14,6 @@ public class LevelManager : MonoBehaviour
     {
         GameManager.Instance.level = level;
         SceneManager.LoadScene("Level_" + level);
-        if (PlayerPrefs.GetFloat("GameMode") == 0)
-        {
-            // Disable AI camera
-        }
     }
 
     public void ReturnToMenu()

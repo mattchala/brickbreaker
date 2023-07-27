@@ -645,7 +645,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  lives: 3
+  playerLives: 3
+  AILives: 3
   level: 1
 --- !u!1 &462977628
 GameObject:
