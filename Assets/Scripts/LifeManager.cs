@@ -18,8 +18,8 @@ public class LifeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerLifeText.text = "Lives:" + GameManager.Instance.playerLives.ToString();
-        AILifeText.text = "Lives:" + GameManager.Instance.AILives.ToString();
+        playerLifeText.text = "Lives: " + GameManager.Instance.playerLives.ToString();
+        AILifeText.text = "Lives: " + GameManager.Instance.AILives.ToString();
     }
 
     // Update is called once per frame

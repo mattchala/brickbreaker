@@ -5,19 +5,18 @@ using UnityEngine.UI;
 public class LevelManager : MonoBehaviour
 {
     public int level;
+    //public Camera playerCamera;
+    //public Camera AICamera;
 
     // public static LevelManager Instance;
 
     static public int unlockedProgress=1;
+    
 
     public void OpenScene()
     {
         GameManager.Instance.level = level;
         SceneManager.LoadScene("Level_" + level);
-        if (PlayerPrefs.GetFloat("GameMode") == 0)
-        {
-            // Disable AI camera
-        }
     }
 
     public void ReturnToMenu()
