@@ -33,7 +33,6 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int points, int playerNumber)
     {
-        Debug.Log("adding score from manager");
         if (playerNumber == 1)
         {
             playerScore += points;
