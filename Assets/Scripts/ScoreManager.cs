@@ -6,12 +6,8 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager Instance;
-
-    public TMP_Text playerScoreText;
-    public TMP_Text AIScoreText;
-    public int playerScore = 0;
-    public int AIScore = 0;
-    
+    public TMP_Text scoreText;
+    public int score = 0;
 
     private void Awake()
     {
@@ -21,8 +17,8 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScoreText.text = "Score:" + playerScore;
-        AIScoreText.text = "Score:" + AIScore;
+        scoreText = GetComponent<TextMeshProUGUI>();
+        scoreText.text = "Score: " + score;
     }
 
     // Update is called once per frame
@@ -31,17 +27,9 @@ public class ScoreManager : MonoBehaviour
 
     }
 
-    public void AddScore(int points, int playerNumber)
+    public void AddScore(int points)
     {
-        if (playerNumber == 1)
-        {
-            playerScore += points;
-            playerScoreText.SetText("Score: " + playerScore.ToString());
-        }
-        if (playerNumber == 2)
-        {
-            AIScore += points;
-            AIScoreText.SetText("Score: " + AIScore.ToString());
-        }
+        score += points;
+        scoreText.text = "Score: " + score;
     }
 }
