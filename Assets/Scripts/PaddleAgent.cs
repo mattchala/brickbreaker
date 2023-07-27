@@ -11,9 +11,14 @@ public class PaddleAgent : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         float moveX = actions.ContinuousActions[0];
+        float moveSpeed = 50f;
+        float max_x_pos = 16f;
 
-        float moveSpeed = 1f;
-        transform.position += new Vector3(moveX, 0, 0) * Time.deltaTime * moveSpeed;
+        // only move left or right if not exceeding that boundary
+        if ((moveX > 0 && transform.position.x < max_x_pos) || (moveX < 0 && transform.position.x > -max_x_pos))
+        {
+            transform.position += new Vector3(moveX, 0, 0) * Time.deltaTime * moveSpeed;
+        }
     }
 
     [SerializeField] private Transform targetTransform;
