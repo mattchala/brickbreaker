@@ -7,7 +7,8 @@ public class LifeManager : MonoBehaviour
 {
     public static LifeManager Instance;
 
-    public TMP_Text lifeText;
+    public TMP_Text playerLifeText;
+    public TMP_Text AILifeText;
 
     private void Awake()
     {
@@ -17,8 +18,8 @@ public class LifeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lifeText = GetComponent<TextMeshProUGUI>();
-        lifeText.text = "Lives: " + GameManager.Instance.lives.ToString();
+        playerLifeText.text = "Lives:" + GameManager.Instance.playerLives.ToString();
+        AILifeText.text = "Lives:" + GameManager.Instance.AILives.ToString();
     }
 
     // Update is called once per frame
@@ -27,9 +28,15 @@ public class LifeManager : MonoBehaviour
 
     }
 
-    public void UpdateLives(int lives)
+    public void UpdateLives(int lives, int playerNumber)
     {
-        Debug.Log(lives);
-        lifeText.text = "Lives: " + lives.ToString();
+        if (playerNumber == 1)
+        {
+        playerLifeText.SetText("Lives: " + lives.ToString());
+        }
+        if (playerNumber == 2)
+        {
+        AILifeText.SetText("Lives: " + lives.ToString());
+        }
     }
 }

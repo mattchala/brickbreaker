@@ -45,28 +45,35 @@ public class Ball : MonoBehaviour
         // JOSH: Prevent ball from moving too horizontally
         CalculateMaxAngle();
 
-        EmitParticles(collision);
-
         if (collision.gameObject.name == "Floor")
         {
             StartCoroutine("ResetBall");
-            GameManager.Instance.LoseLife(); 
+            if (this.tag == "Player1")
+            {
+                GameManager.Instance.LosePlayerLife(); 
+            }
+            if (this.tag == "Player2")
+            {
+                GameManager.Instance.LoseAILife(); 
+            }
         }
 
         if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
         {
             ball_animator.Play("bounce_1");
+            EmitParticles(collision);
         }
-
-
-        if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Brick")
+        if (this.tag == "Player1") // JOSH: Disable screenshake for player 2
         {
-            screen_shake.BrickShake();
-        }
-        
-        if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Paddle")
-        {
-            screen_shake.PaddleShake();
+            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Brick")
+            {
+                screen_shake.BrickShake();
+            }
+            
+            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Paddle")
+            {
+                screen_shake.PaddleShake();
+            }
         }
     }
 
@@ -78,8 +85,16 @@ public class Ball : MonoBehaviour
         Vector2 force = Vector2.zero;
         //force.x = Random.Range(-1f, 1f);  // MATT: Comment this line out if you don't want the starting ball trajectory to be randomized
         force.y = -1f;
-        transform.position = new Vector3(0, 0, 0);
-        ball_body.velocity = Vector3.zero;
+        if (this.tag == "Player1")
+        {
+            transform.position = new Vector3(0, 0, 0);
+            ball_body.velocity = Vector3.zero;
+        }
+        if (this.tag == "Player2")
+        {
+            transform.position = new Vector3(0, -40, 0);
+            ball_body.velocity = Vector3.zero;
+        }
         yield return new WaitForSeconds(1f); // JOSH: Wait for 1 second before launching ball
         this.ball_body.AddForce(force.normalized * this.speed);
         yield return new WaitForSeconds(.1f); // MATT: waits for velocity.y to not equal 0 before setting ball_is_moving to true 

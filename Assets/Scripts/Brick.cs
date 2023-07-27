@@ -55,7 +55,16 @@ public class Brick : MonoBehaviour
             // TODO play destroy sound
             EmitParticles();
             brick_animator.Play("brick_destroy");
-            ScoreManager.Instance.AddScore(1);
+            if (this.tag == "Player1")
+            {
+                Debug.Log("adding score player 1");
+                ScoreManager.Instance.AddScore(1, 1);
+            }
+            if (this.tag == "Player2")
+            {
+                Debug.Log("adding score player 2");
+                ScoreManager.Instance.AddScore(1, 2);
+            }
         }
         else
         {

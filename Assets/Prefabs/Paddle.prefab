@@ -4919,11 +4919,11 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8172647371290916550}
-  - {fileID: 6155628744821922487}
+  - {fileID: 4953880309870441871}
   - {fileID: 3741582964882584234}
   - {fileID: 6171628916397248560}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8746061607358354317
 SpriteRenderer:
@@ -5042,11 +5042,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move_speed: 50
   max_x_pos: 16
-  paddle_animator: {fileID: 996759849309200790}
-  smoke: {fileID: 6005765147705977546}
-  sparks: {fileID: 8112004666942769902}
-  dust_left: {fileID: 7120842041905280196}
-  dust_right: {fileID: 3975189503908046077}
+  paddle_animator: {fileID: 0}
+  smoke: {fileID: 0}
+  sparks: {fileID: 0}
+  dust_left: {fileID: 0}
+  dust_right: {fileID: 0}
 --- !u!95 &996759849309200790
 Animator:
   serializedVersion: 5
@@ -10037,12 +10037,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e6c551b11b932d4eb423cf730219d26, type: 3}
---- !u!198 &6005765147705977546 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 8174816488363516978, guid: 2e6c551b11b932d4eb423cf730219d26,
-    type: 3}
-  m_PrefabInstance: {fileID: 2461793186998537976}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8172647371290916550 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5999103286686611518, guid: 2e6c551b11b932d4eb423cf730219d26,
@@ -10132,15 +10126,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d9f5df2e718cf3409d6b434a9eae2f4, type: 3}
---- !u!4 &6155628744821922487 stripped
+--- !u!4 &4953880309870441871 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8594878436609954895, guid: 5d9f5df2e718cf3409d6b434a9eae2f4,
-    type: 3}
-  m_PrefabInstance: {fileID: 3744905283767116224}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8112004666942769902 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5960983184511927318, guid: 5d9f5df2e718cf3409d6b434a9eae2f4,
     type: 3}
   m_PrefabInstance: {fileID: 3744905283767116224}
   m_PrefabAsset: {fileID: 0}
