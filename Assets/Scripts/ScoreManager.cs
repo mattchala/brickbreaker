@@ -21,8 +21,8 @@ public class ScoreManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerScoreText.text = "Score:" + playerScore;
-        AIScoreText.text = "Score:" + AIScore;
+        playerScoreText.text = "Score: " + playerScore;
+        AIScoreText.text = "Score: " + AIScore;
     }
 
     // Update is called once per frame
