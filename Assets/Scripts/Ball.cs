@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 
@@ -45,31 +45,35 @@ public class Ball : MonoBehaviour
         // JOSH: Prevent ball from moving too horizontally
         CalculateMaxAngle();
 
-        EmitParticles(collision);
-
         if (collision.gameObject.name == "Floor")
         {
             StartCoroutine("ResetBall");
-            PaddleAgent.Instance.AddReward(-10f);
-            Debug.Log("LOST BALL");
-            PaddleAgent.Instance.EndEpisode();
-            GameManager.Instance.LoseLife(); 
+            if (this.tag == "Player1")
+            {
+                GameManager.Instance.LosePlayerLife(); 
+            }
+            if (this.tag == "Player2")
+            {
+                GameManager.Instance.LoseAILife(); 
+            }
         }
 
         if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
         {
             ball_animator.Play("bounce_1");
+            EmitParticles(collision);
         }
-
-
-        if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Brick")
+        if (this.tag == "Player1") // JOSH: Disable screenshake for player 2
         {
-            screen_shake.BrickShake();
-        }
-        
-        if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Paddle")
-        {
-            screen_shake.PaddleShake();
+            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Brick")
+            {
+                screen_shake.BrickShake();
+            }
+            
+            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Paddle")
+            {
+                screen_shake.PaddleShake();
+            }
         }
     }
 

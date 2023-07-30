@@ -797,6 +797,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  playerCamera: {fileID: 0}
+  AICamera: {fileID: 0}
 --- !u!1 &435743396
 GameObject:
   m_ObjectHideFlags: 0
@@ -5065,3 +5067,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 1
+  playerCamera: {fileID: 652464533003037043, guid: ccd58d6d9b8374618a2f27e3f43d4cf7, type: 3}
+  AICamera: {fileID: 652464533003037043, guid: ccd58d6d9b8374618a2f27e3f43d4cf7, type: 3}

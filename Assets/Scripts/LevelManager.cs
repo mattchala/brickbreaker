@@ -10,21 +10,26 @@ public class LevelManager : MonoBehaviour
 
     static public int unlockedProgress=1;
 
-    public void OpenScene() {
+    public void OpenScene()
+    {
         GameManager.Instance.level = level;
         SceneManager.LoadScene("Level_" + level);
     }
 
-    public void ReturnToMenu(){
+    public void ReturnToMenu()
+    {
         SceneManager.LoadScene("Menu");
     }
-    public void RestartLevel(){
+    public void RestartLevel()
+    {
         GameManager.Instance.score = 0;
-        GameManager.Instance.lives = 3;
+        GameManager.Instance.playerLives = 3;
+        GameManager.Instance.AILives = 3;
         SceneManager.LoadScene("Level_" + (GameManager.Instance.level).ToString());
     }
 
-    public void NextLevel(){
+    public void NextLevel()
+    {
         GameManager.Instance.level ++;
         SceneManager.LoadScene("Level_" + (GameManager.Instance.level).ToString());
     }

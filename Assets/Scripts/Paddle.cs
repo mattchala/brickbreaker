@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 public class Paddle : MonoBehaviour
 {
@@ -42,21 +42,20 @@ public class Paddle : MonoBehaviour
 
         if (collision.gameObject.name == "LeftWall")
         {
-            EmitParticles(collision);
-            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1)
+            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && this.tag == "Player1")
             {
                 screen_shake.LeftWallShake();
             }
             if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
             {
                 paddle_animator.Play("wall_bump");
+                EmitParticles(collision);
             }
         }
     
         if (collision.gameObject.name == "RightWall")
         {
-            EmitParticles(collision);
-            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1)
+            if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && this.tag == "Player1")
             {
                 screen_shake.RightWallShake();
             }

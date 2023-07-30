@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance;
 
     public int score = 0;
-    public int lives = 3;
+    public int playerLives = 3;
+    public int AILives = 3;
     public int level = 1;
 
 
@@ -39,7 +40,8 @@ public class GameManager : MonoBehaviour
     {
         // reset score, lives, and start at new level
         this.score = 0;
-        this.lives = 3;
+        this.playerLives = 3;
+        this.AILives = 3;
         SceneManager.LoadScene("Level_Selection");
     }
 
@@ -78,17 +80,25 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void LoseLife()
+    public void LosePlayerLife()
     {
-        lives -= 1;
-        Debug.Log("Life lost");
-        LifeManager.Instance.UpdateLives(lives);
-        if (lives <= 0)
+        playerLives -= 1;
+        LifeManager.Instance.UpdateLives(playerLives, 1);
+        if (playerLives <= 0)
         {
-            Debug.Log("Game Over");
             // Game over
             UpdateHighScore();
             SceneManager.LoadScene("Game_Over");
+        }
+    }
+
+    public void LoseAILife()
+    {
+        AILives -= 1;
+        LifeManager.Instance.UpdateLives(AILives, 2);
+        if (AILives <= 0)
+        {
+            // AI loss
         }
     }
 
@@ -104,15 +114,15 @@ public class GameManager : MonoBehaviour
         // Update high score table for specified level
         if (scene == "Level_1") 
         {
-            L1HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
+            L1HighScores.Instance.NewHighScore(ScoreManager.Instance.playerScore, name);
         }
         else if (scene == "Level_2")
         {
-            L2HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
+            L2HighScores.Instance.NewHighScore(ScoreManager.Instance.playerScore, name);
         }
         else if (scene == "Level_3")
         {
-            L3HighScores.Instance.NewHighScore(ScoreManager.Instance.score, name);
+            L3HighScores.Instance.NewHighScore(ScoreManager.Instance.playerScore, name);
         }
     }
 
