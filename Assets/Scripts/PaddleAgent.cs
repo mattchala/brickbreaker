@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,14 @@ using Unity.MLAgents.Sensors;
 
 public class PaddleAgent : Agent
 {
+    public static PaddleAgent Instance;
+    public Ball ball;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     public float max_x_pos = 16f;
     public override void OnActionReceived(ActionBuffers actions)
     {
@@ -14,19 +23,34 @@ public class PaddleAgent : Agent
         float moveSpeed = 50f;
         float max_x_pos = 16f;
 
+        Instance.AddReward(0.1f);
         // only move left or right if not exceeding that boundary
         if ((moveX > 0 && transform.position.x < max_x_pos) || (moveX < 0 && transform.position.x > -max_x_pos))
         {
-            transform.position += new Vector3(moveX, 0, 0) * Time.deltaTime * moveSpeed;
+            transform.position += new Vector3(moveX, 0, 0);
         }
     }
 
     [SerializeField] private Transform targetTransform;
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(transform.position);
-        sensor.AddObservation(targetTransform.position);
+        // Debug.Log("PADDLE " + transform.position.x.ToString());
+        // Debug.Log("BALL " + targetTransform.position.ToString());
+        // Debug.Log(Vector3.Distance (transform.position, targetTransform.position));
+        sensor.AddObservation(transform.position.x);
+        sensor.AddObservation(targetTransform.position.x);
+        sensor.AddObservation(targetTransform.position.y);
+        sensor.AddObservation(ball.ball_body.velocity);
+        // sensor.AddObservation((targetTransform.position - transform.position)/(targetTransform.position - transform.position).magnitude);
+        // sensor.AddObservation(Vector3.Distance (transform.position, targetTransform.position));
+        // sensor.AddObservation((float)Math.Abs(transform.position.x - -16));
+        // sensor.AddObservation((float)Math.Abs(transform.position.x - 16));
+        // Debug.Log("BALL" + targetTransform.position.x.ToString() + " " + targetTransform.position.y.ToString());
+
+        // Debug.Log("LEFT " + Math.Abs(transform.position.x - -16.69665).ToString());
+        // Debug.Log("RIGHT " + Math.Abs(transform.position.x - 19.85335).ToString());
     }
+    
 
     public override void OnEpisodeBegin()
     {
@@ -38,15 +62,15 @@ public class PaddleAgent : Agent
     {
         ActionSegment<float> continuousActions = actionsOut.ContinuousActions;
         continuousActions[0] = Input.GetAxisRaw("Horizontal");
-        continuousActions[1] = Input.GetAxisRaw("Vertical");
+        // continuousActions[1] = Input.GetAxisRaw("Vertical");
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision");
-        if (collision.rigidbody.name == "Ball")
+        if (collision.gameObject.name == "Ball")
         {
-            SetReward(+1f);
+            Instance.AddReward(+1f);
             Debug.Log("BALL HIT");
         }
     }

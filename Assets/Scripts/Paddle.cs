@@ -94,9 +94,9 @@ public class Paddle : MonoBehaviour
     // MATT: This moves the paddle using the calculated direction and speed
     private void MovePaddle()
     {
-        if ((this.move_dir.x > 0 && transform.position.x < max_x_pos) || (this.move_dir.x < 0 && transform.position.x > -max_x_pos))
+        if ((this.move_dir.x > 0 && transform.localPosition.x < max_x_pos) || (this.move_dir.x < 0 && transform.localPosition.x > -max_x_pos))
         {
-            this.transform.position += Vector3.right * this.move_dir.x * move_speed * Time.deltaTime;
+            this.transform.localPosition += Vector3.right * this.move_dir.x * move_speed * Time.deltaTime;
         }
     }
 

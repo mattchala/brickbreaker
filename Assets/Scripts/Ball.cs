@@ -50,6 +50,9 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.name == "Floor")
         {
             StartCoroutine("ResetBall");
+            PaddleAgent.Instance.AddReward(-10f);
+            Debug.Log("LOST BALL");
+            PaddleAgent.Instance.EndEpisode();
             GameManager.Instance.LoseLife(); 
         }
 
@@ -76,9 +79,9 @@ public class Ball : MonoBehaviour
     {
         ball_is_moving = false;
         Vector2 force = Vector2.zero;
-        //force.x = Random.Range(-1f, 1f);  // MATT: Comment this line out if you don't want the starting ball trajectory to be randomized
+        force.x = UnityEngine.Random.Range(-1f, 1f);  // MATT: Comment this line out if you don't want the starting ball trajectory to be randomized
         force.y = -1f;
-        transform.position = new Vector3(0, 0, 0);
+        transform.localPosition = new Vector3(0, 0, 0);
         ball_body.velocity = Vector3.zero;
         yield return new WaitForSeconds(1f); // JOSH: Wait for 1 second before launching ball
         this.ball_body.AddForce(force.normalized * this.speed);
