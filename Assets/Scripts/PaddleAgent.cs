@@ -25,28 +25,36 @@ public class PaddleAgent : Agent
 
         Instance.AddReward(0.1f);
         // only move left or right if not exceeding that boundary
-        if ((moveX > 0 && transform.position.x < max_x_pos) || (moveX < 0 && transform.position.x > -max_x_pos))
+        if ((moveX > 0 && transform.localPosition.x < max_x_pos) || (moveX < 0 && transform.localPosition.x > -max_x_pos))
         {
-            transform.position += new Vector3(moveX, 0, 0);
+            transform.localPosition += new Vector3(moveX, 0, 0);
         }
     }
 
     [SerializeField] private Transform targetTransform;
     public override void CollectObservations(VectorSensor sensor)
     {
+        sensor.AddObservation(transform.localPosition.x);
+        sensor.AddObservation(targetTransform.localPosition.x);
+        sensor.AddObservation(targetTransform.localPosition.y);
+        sensor.AddObservation(ball.ball_body.velocity);
+        
+        // velocity direction  
+        // sensor.AddObservation((targetTransform.position - transform.position)/(targetTransform.position - transform.position).magnitude);
+        
+        // distance from ball to paddle
+        // sensor.AddObservation(Vector3.Distance (transform.position, targetTransform.position));
+        
+        // distance from center of paddle to center of left wall
+        // sensor.AddObservation((float)Math.Abs(transform.position.x - -16));
+
+        // distance from center of paddle to center of right wall
+        // sensor.AddObservation((float)Math.Abs(transform.position.x - 16));
+
         // Debug.Log("PADDLE " + transform.position.x.ToString());
         // Debug.Log("BALL " + targetTransform.position.ToString());
         // Debug.Log(Vector3.Distance (transform.position, targetTransform.position));
-        sensor.AddObservation(transform.position.x);
-        sensor.AddObservation(targetTransform.position.x);
-        sensor.AddObservation(targetTransform.position.y);
-        sensor.AddObservation(ball.ball_body.velocity);
-        // sensor.AddObservation((targetTransform.position - transform.position)/(targetTransform.position - transform.position).magnitude);
-        // sensor.AddObservation(Vector3.Distance (transform.position, targetTransform.position));
-        // sensor.AddObservation((float)Math.Abs(transform.position.x - -16));
-        // sensor.AddObservation((float)Math.Abs(transform.position.x - 16));
         // Debug.Log("BALL" + targetTransform.position.x.ToString() + " " + targetTransform.position.y.ToString());
-
         // Debug.Log("LEFT " + Math.Abs(transform.position.x - -16.69665).ToString());
         // Debug.Log("RIGHT " + Math.Abs(transform.position.x - 19.85335).ToString());
     }
@@ -54,8 +62,8 @@ public class PaddleAgent : Agent
 
     public override void OnEpisodeBegin()
     {
-        transform.position = new Vector3(0, -8, 0);
-        targetTransform.position = Vector3.zero;
+        transform.localPosition = new Vector3(0, -8, 0);
+        targetTransform.localPosition = Vector3.zero;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
