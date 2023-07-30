@@ -5,6 +5,7 @@ using System.Collections;
 public class Ball : MonoBehaviour
 {
     public Rigidbody2D ball_body { get; private set; }
+    public GameObject paddle;
     public float speed = 20f;
     private CameraShake screen_shake;
     public Animator ball_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
@@ -47,6 +48,7 @@ public class Ball : MonoBehaviour
 
         if (collision.gameObject.name == "Floor")
         {
+            paddle.transform.localPosition = new Vector3(0, paddle.transform.localPosition.y, paddle.transform.localPosition.z);
             StartCoroutine("ResetBall");
             if (this.tag == "Player1")
             {
