@@ -33,4 +33,8 @@ public class LevelManager : MonoBehaviour
         GameManager.Instance.level ++;
         SceneManager.LoadScene("Level_" + (GameManager.Instance.level).ToString());
     }
+
+    public void AI_Level_1(){
+        SceneManager.LoadScene("AI_Level_1");
+    }
 }

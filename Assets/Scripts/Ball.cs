@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections;
 
@@ -83,18 +83,10 @@ public class Ball : MonoBehaviour
     {
         ball_is_moving = false;
         Vector2 force = Vector2.zero;
-        //force.x = Random.Range(-1f, 1f);  // MATT: Comment this line out if you don't want the starting ball trajectory to be randomized
+        force.x = UnityEngine.Random.Range(-1f, 1f);  // MATT: Comment this line out if you don't want the starting ball trajectory to be randomized
         force.y = -1f;
-        if (this.tag == "Player1")
-        {
-            transform.position = new Vector3(0, 0, 0);
-            ball_body.velocity = Vector3.zero;
-        }
-        if (this.tag == "Player2")
-        {
-            transform.position = new Vector3(0, -40, 0);
-            ball_body.velocity = Vector3.zero;
-        }
+        transform.localPosition = new Vector3(0, 0, 0);
+        ball_body.velocity = Vector3.zero;
         yield return new WaitForSeconds(1f); // JOSH: Wait for 1 second before launching ball
         this.ball_body.AddForce(force.normalized * this.speed);
         yield return new WaitForSeconds(.1f); // MATT: waits for velocity.y to not equal 0 before setting ball_is_moving to true 

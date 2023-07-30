@@ -1,6 +1,6 @@
-﻿using UnityEngine;
+using UnityEngine;
 
-public class Paddle1 : MonoBehaviour
+public class Paddle : MonoBehaviour
 {
     public Vector2 move_dir { get; private set; }
     public float move_speed = 50f;
@@ -62,7 +62,6 @@ public class Paddle1 : MonoBehaviour
             if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
             {
                 paddle_animator.Play("wall_bump");
-                EmitParticles(collision);
             }
         }
     }
@@ -72,45 +71,21 @@ public class Paddle1 : MonoBehaviour
     // MATT: avoids using else so certain branches don't take precedence if multiple direction keys are held
     private void CalcInputPaddleDiraction()
     {
-        // JOSH: Player 1
-        if (this.tag == "Player1")
+        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
-            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
-            {
-                this.move_dir += Vector2.left;
-                dust_left.Play();
-            }
-            if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-            {
-                this.move_dir += Vector2.right;
-                dust_right.Play();
-            }
-            if (!(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) &&
-                !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
-            {
-                this.move_dir = Vector2.zero;
-            }
+            this.move_dir += Vector2.left;
+            dust_left.Play();
         }
-
-        // JOSH: Player 2 - update after AI training
-        if (this.tag == "Player2")
+        if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
-            if (Input.GetKey(KeyCode.N))
-            {
-                this.move_dir += Vector2.left;
-                dust_left.Play();
-            }
-            if (Input.GetKey(KeyCode.M))
-            {
-                this.move_dir += Vector2.right;
-                dust_right.Play();
-            }
-            if (!Input.GetKey(KeyCode.N) && !(Input.GetKey(KeyCode.M)))
-            {
-                this.move_dir = Vector2.zero;
-            }
+            this.move_dir += Vector2.right;
+            dust_right.Play();
         }
-
+        if (!(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) &&
+            !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))
+        {
+            this.move_dir = Vector2.zero;
+        }
         this.move_dir = new Vector2(Mathf.Clamp(this.move_dir.x, -1, 1), 0);
     }
     
@@ -118,9 +93,9 @@ public class Paddle1 : MonoBehaviour
     // MATT: This moves the paddle using the calculated direction and speed
     private void MovePaddle()
     {
-        if ((this.move_dir.x > 0 && transform.position.x < max_x_pos) || (this.move_dir.x < 0 && transform.position.x > -max_x_pos))
+        if ((this.move_dir.x > 0 && transform.localPosition.x < max_x_pos) || (this.move_dir.x < 0 && transform.localPosition.x > -max_x_pos))
         {
-            this.transform.position += Vector3.right * this.move_dir.x * move_speed * Time.deltaTime;
+            this.transform.localPosition += Vector3.right * this.move_dir.x * move_speed * Time.deltaTime;
         }
     }
 

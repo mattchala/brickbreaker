@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Lock
   - CameraShake
+  - Ball
   - Player1
   - Player2
   layers:
