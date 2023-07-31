@@ -2556,7 +2556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61170c361e44f4702aaf5d47cead15b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeText: {fileID: 0}
+  playerLifeText: {fileID: 0}
+  AILifeText: {fileID: 0}
 --- !u!114 &1174538285
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3469,8 +3470,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 386b92943396443778f1c012fabe04dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  score: 0
+  playerScoreText: {fileID: 0}
+  AIScoreText: {fileID: 0}
+  playerScore: 0
+  AIScore: 0
 --- !u!114 &1632620004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3864,12 +3867,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4692720703484047686, guid: 025cc73e0a277074ea93780de332d561,
     type: 3}
   m_PrefabInstance: {fileID: 1774241665}
-  m_PrefabAsset: {fileID: 0}
---- !u!20 &1831489754 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 8695488508602518721, guid: b92aea4d3f3c3f84c95ec0377abb1ae5,
-    type: 3}
-  m_PrefabInstance: {fileID: 5056399799034299672}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1836538410
 PrefabInstance:
@@ -4436,7 +4433,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 1831489754}
+  m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -5151,6 +5148,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Main Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 8695488508602518721, guid: b92aea4d3f3c3f84c95ec0377abb1ae5,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8695488508602518721, guid: b92aea4d3f3c3f84c95ec0377abb1ae5,
         type: 3}
