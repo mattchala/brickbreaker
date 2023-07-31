@@ -10,6 +10,12 @@ public class PlayerNameInput : MonoBehaviour
     public GameObject inputFieldPanel;
     public TMP_InputField inputField;
 
+    void Start()
+    {
+        PlayerPrefs.SetString("PlayerName", "???");
+        PlayerPrefs.Save();
+    }
+
     public void OnClickEnter()
     {
         playerName = inputField.text;
