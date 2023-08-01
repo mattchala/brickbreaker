@@ -8855,6 +8855,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: AILifeCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 2116254919199923713, guid: 42426001dad37486d862fd2b5fe26aaf,
+        type: 3}
+      propertyPath: m_Model
+      value: 
+      objectReference: {fileID: 5022602860645237092, guid: 152c00038d838479a9de9de17aa6e1ca,
+        type: 3}
+    - target: {fileID: 2116254919199923713, guid: 42426001dad37486d862fd2b5fe26aaf,
+        type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3865260478349072853, guid: 42426001dad37486d862fd2b5fe26aaf,
         type: 3}
       propertyPath: m_AnchoredPosition.x

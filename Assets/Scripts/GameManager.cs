@@ -77,6 +77,13 @@ public class GameManager : MonoBehaviour
             Debug.Log(LevelManager.unlockedProgress);
             UpdateHighScore();
             SceneManager.LoadScene("Level_Complete");
+        
+            // // below is for resetting bricks during training
+            // for (int i=0; i < Instance.bricks.Length; i++)
+            // {
+            //     Instance.bricks[i].gameObject.SetActive(true);
+            //     Instance.bricks[i].brick_health = 3;
+            // }
         }
     }
 

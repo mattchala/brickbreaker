@@ -1,0 +1,38 @@
+{
+    "Paddle": {
+        "checkpoints": [
+            {
+                "steps": 499958,
+                "file_path": "results/1_env_reset_bricks/Paddle/Paddle-499958.onnx",
+                "reward": 479.7999997820173,
+                "creation_time": 1690847499.496137,
+                "auxillary_file_paths": [
+                    "results/1_env_reset_bricks/Paddle/Paddle-499958.pt"
+                ]
+            },
+            {
+                "steps": 500022,
+                "file_path": "results/1_env_reset_bricks/Paddle/Paddle-500022.onnx",
+                "reward": 479.7999997820173,
+                "creation_time": 1690847499.559694,
+                "auxillary_file_paths": [
+                    "results/1_env_reset_bricks/Paddle/Paddle-500022.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500022,
+            "file_path": "results/1_env_reset_bricks/Paddle.onnx",
+            "reward": 479.7999997820173,
+            "creation_time": 1690847499.559694,
+            "auxillary_file_paths": [
+                "results/1_env_reset_bricks/Paddle/Paddle-500022.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.11.0"
+    }
+}

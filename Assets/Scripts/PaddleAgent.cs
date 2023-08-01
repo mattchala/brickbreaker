@@ -20,7 +20,7 @@ public class PaddleAgent : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         float moveX = actions.ContinuousActions[0];
-        float moveSpeed = 50f;
+        // float moveSpeed = 50f;
         float max_x_pos = 16f;
 
         Instance.AddReward(0.1f);
@@ -40,10 +40,10 @@ public class PaddleAgent : Agent
         sensor.AddObservation(ball.ball_body.velocity);
         
         // velocity direction  
-        // sensor.AddObservation((targetTransform.position - transform.position)/(targetTransform.position - transform.position).magnitude);
+        sensor.AddObservation((targetTransform.position - transform.position)/(targetTransform.position - transform.position).magnitude);
         
         // distance from ball to paddle
-        // sensor.AddObservation(Vector3.Distance (transform.position, targetTransform.position));
+        sensor.AddObservation(Vector3.Distance (transform.position, targetTransform.position));
         
         // distance from center of paddle to center of left wall
         // sensor.AddObservation((float)Math.Abs(transform.position.x - -16));
