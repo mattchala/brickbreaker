@@ -79,11 +79,11 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene("Level_Complete");
         
             // // below is for resetting bricks during training
-            // for (int i=0; i < Instance.bricks.Length; i++)
-            // {
-            //     Instance.bricks[i].gameObject.SetActive(true);
-            //     Instance.bricks[i].brick_health = 3;
-            // }
+            for (int i=0; i < Instance.bricks.Length; i++)
+            {
+                Instance.bricks[i].gameObject.SetActive(true);
+                Instance.bricks[i].brick_health = 2;    // changed to 2 from 3 to accomodate new brick health
+            }
         }
     }
 

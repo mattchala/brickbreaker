@@ -11,6 +11,8 @@ public class PaddleAgent : Agent
     public static PaddleAgent Instance;
     public Ball ball;
 
+    public Transform[] obstacles;     // MATT: make a modifiable list in UI to add obstacles to track and add
+
     private void Awake()
     {
         Instance = this;
@@ -44,6 +46,13 @@ public class PaddleAgent : Agent
         
         // distance from ball to paddle
         sensor.AddObservation(Vector3.Distance (transform.position, targetTransform.position));
+
+
+        // MATT: add the current obstacle positions as observations if they exist
+        foreach(var obstacle in obstacles) 
+        {
+            sensor.AddObservation(obstacle.localPosition);
+        }
         
         // distance from center of paddle to center of left wall
         // sensor.AddObservation((float)Math.Abs(transform.position.x - -16));
