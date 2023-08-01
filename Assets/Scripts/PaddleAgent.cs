@@ -10,8 +10,8 @@ public class PaddleAgent : Agent
 {
     public static PaddleAgent Instance;
     public Ball ball;
-
     public Transform[] obstacles;     // MATT: make a modifiable list in UI to add obstacles to track and add
+    private int lives = 3;            // MATT: adding lives
 
     private void Awake()
     {
@@ -84,22 +84,40 @@ public class PaddleAgent : Agent
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision");
+        //Debug.Log("Collision");
         if (collision.gameObject.name == "Ball")
         {
             Instance.AddReward(+1f);
-            Debug.Log("BALL HIT");
+            //Debug.Log("BALL HIT");
         }
     }
-    private void OnTriggerEnter(Collider other){
+
+    // private void OnTriggerEnter(Collider other){
 
 
-        if (other.TryGetComponent<Floor>(out Floor floor))
+    //     if (other.TryGetComponent<Floor>(out Floor floor))
+    //     {
+    //         SetReward(-1f);
+    //         Debug.Log("Loss");
+    //         EndEpisode();
+    //     }
+
+    // }
+
+    public void BadReward()
+    {
+        if (lives > 0)
         {
-            SetReward(-1f);
-            Debug.Log("Loss");
+            lives--;
+            Instance.AddReward(-1f);
+        }
+        else
+        {
+            lives = 3;
+            //SetReward(-1f);
+            Instance.AddReward(-10f);  // MATT: curious about adding vs setting here
+            //Debug.Log("Loss");
             EndEpisode();
         }
-
-    }
+    } 
 }

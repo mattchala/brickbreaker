@@ -73,10 +73,10 @@ public class GameManager : MonoBehaviour
     {    
         if (GameManager.Instance.CheckBricks())
         {
-            LevelManager.unlockedProgress = Mathf.Max(LevelManager.unlockedProgress, GameManager.Instance.level+1);
-            Debug.Log(LevelManager.unlockedProgress);
-            UpdateHighScore();
-            SceneManager.LoadScene("Level_Complete");
+            // LevelManager.unlockedProgress = Mathf.Max(LevelManager.unlockedProgress, GameManager.Instance.level+1);
+            // Debug.Log(LevelManager.unlockedProgress);
+            // UpdateHighScore();
+            // SceneManager.LoadScene("Level_Complete");
         
             // // below is for resetting bricks during training
             for (int i=0; i < Instance.bricks.Length; i++)

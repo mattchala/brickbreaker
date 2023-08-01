@@ -1,4 +1,35 @@
 {
+    "Paddle": {
+        "checkpoints": [
+            {
+                "steps": 499987,
+                "file_path": "results\\obstacles\\Paddle\\Paddle-499987.onnx",
+                "reward": 99.33783783783784,
+                "creation_time": 1690917613.755458,
+                "auxillary_file_paths": [
+                    "results\\obstacles\\Paddle\\Paddle-499987.pt"
+                ]
+            },
+            {
+                "steps": 500051,
+                "file_path": "results\\obstacles\\Paddle\\Paddle-500051.onnx",
+                "reward": 99.33783783783784,
+                "creation_time": 1690917613.7884574,
+                "auxillary_file_paths": [
+                    "results\\obstacles\\Paddle\\Paddle-500051.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500051,
+            "file_path": "results\\obstacles\\Paddle.onnx",
+            "reward": 99.33783783783784,
+            "creation_time": 1690917613.7884574,
+            "auxillary_file_paths": [
+                "results\\obstacles\\Paddle\\Paddle-500051.pt"
+            ]
+        }
+    },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.30.0",
