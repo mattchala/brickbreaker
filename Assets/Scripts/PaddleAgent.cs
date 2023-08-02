@@ -22,7 +22,7 @@ public class PaddleAgent : Agent
         float moveX = actions.ContinuousActions[0];
         // float moveSpeed = 50f;
         float max_x_pos = 16f;
-
+    
         Instance.AddReward(0.1f);
         // only move left or right if not exceeding that boundary
         if ((moveX > 0 && transform.localPosition.x < max_x_pos) || (moveX < 0 && transform.localPosition.x > -max_x_pos))
@@ -75,22 +75,11 @@ public class PaddleAgent : Agent
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Collision");
+        // Debug.Log("Collision");
         if (collision.gameObject.name == "Ball")
         {
             Instance.AddReward(+1f);
-            Debug.Log("BALL HIT");
+            // Debug.Log("BALL HIT");
         }
-    }
-    private void OnTriggerEnter(Collider other){
-
-
-        if (other.TryGetComponent<Floor>(out Floor floor))
-        {
-            SetReward(-1f);
-            Debug.Log("Loss");
-            EndEpisode();
-        }
-
     }
 }
