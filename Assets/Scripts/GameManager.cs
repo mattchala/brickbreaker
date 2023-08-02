@@ -119,18 +119,8 @@ public class GameManager : MonoBehaviour
         string scene = loadedScene.name;
         
         // Update high score table for specified level
-        if (scene == "Level_1") 
-        {
-            L1HighScores.Instance.NewHighScore(ScoreManager.Instance.playerScore, name);
-        }
-        else if (scene == "Level_2")
-        {
-            L2HighScores.Instance.NewHighScore(ScoreManager.Instance.playerScore, name);
-        }
-        else if (scene == "Level_3")
-        {
-            L3HighScores.Instance.NewHighScore(ScoreManager.Instance.playerScore, name);
-        }
+        string level_num = scene.Remove(0, 6);
+        LevelHighScoresSystem.Instance.NewHighScore(ScoreManager.Instance.playerScore, name, level_num);
     }
 
     public void OnClickHighScores()

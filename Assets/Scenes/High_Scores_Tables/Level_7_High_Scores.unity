@@ -822,7 +822,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'HIGH SCORES
 
-    Level 3'
+    Level 7'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1163,9 +1163,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 975554011}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d8062f57f661c54390148fe65c6b313, type: 3}
+  m_Script: {fileID: 11500000, guid: f721964f652b7e443b1d2c02f7d68e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 7
 --- !u!1 &979399294
 GameObject:
   m_ObjectHideFlags: 0
@@ -2019,7 +2020,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 975554017}
-        m_TargetAssemblyTypeName: L3HighScores, Assembly-CSharp
+        m_TargetAssemblyTypeName: LevelHighScoresSystem, Assembly-CSharp
         m_MethodName: OnClickReset
         m_Mode: 1
         m_Arguments:

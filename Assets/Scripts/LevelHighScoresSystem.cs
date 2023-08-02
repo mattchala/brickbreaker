@@ -1,15 +1,16 @@
 /* The following code is adapted from the tutorial "High Score Table with Saving and Loading (Unity
-Tutorial for Beginners) at the following URL: https://www.youtube.com/watch?v=iAbaqGYdnyI */
+Tutorial for Beginners)" at the following URL: https://www.youtube.com/watch?v=iAbaqGYdnyI */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
-public class L3HighScores : MonoBehaviour
+public class LevelHighScoresSystem : MonoBehaviour
 {
-
-    public static L3HighScores Instance;
+    
+    public static LevelHighScoresSystem Instance;
+    public int level;
 
     // References to table, container, and template for high scores
     private Transform highScoresTable;
@@ -25,7 +26,7 @@ public class L3HighScores : MonoBehaviour
 
         Scene loadedScene = SceneManager.GetActiveScene();
         string scene = loadedScene.name;
-        if (scene == "Level_3_High_Scores") 
+        if (scene == "Level_" + level.ToString() + "_High_Scores")
         {
             // Find table, container, and template objects and update references
             highScoresTable = transform.Find("HighScoresTable");
@@ -37,7 +38,7 @@ public class L3HighScores : MonoBehaviour
         
 
             // Get high scores list and convert to string
-            string jsonHighScoresString = PlayerPrefs.GetString("Level_3_High_Scores_Table");
+            string jsonHighScoresString = PlayerPrefs.GetString("Level_" + level.ToString() + "_High_Scores_Table");
             HighScores highScores = JsonUtility.FromJson<HighScores>(jsonHighScoresString);
 
             // Create new high scores list if none exists
@@ -97,13 +98,13 @@ public class L3HighScores : MonoBehaviour
         transformList.Add(highScoresTransform);
     }
 
-    public void NewHighScore(int score, string playerName)
+    public void NewHighScore(int score, string playerName, string level_num)
     {
         // Create new entry for high scores
         HighScoresEntry highScoresEntry = new HighScoresEntry{score = score, playerName = playerName};
         
         // Load the previously saved high scores
-        string jsonHighScoresString = PlayerPrefs.GetString("Level_3_High_Scores_Table");
+        string jsonHighScoresString = PlayerPrefs.GetString("Level_" + level_num + "_High_Scores_Table");
         HighScores highScores = JsonUtility.FromJson<HighScores>(jsonHighScoresString);
 
         // Create new high scores list if none exists
@@ -162,7 +163,7 @@ public class L3HighScores : MonoBehaviour
         
         // Convert updated list to JSON and save to PlayerPrefs
         string jsonHighScoresEntryList = JsonUtility.ToJson(highScores);
-        PlayerPrefs.SetString("Level_3_High_Scores_Table", jsonHighScoresEntryList);
+        PlayerPrefs.SetString("Level_" + level_num + "_High_Scores_Table", jsonHighScoresEntryList);
         PlayerPrefs.Save();
     }
 
@@ -189,9 +190,9 @@ public class L3HighScores : MonoBehaviour
     // Reset button to clear out high scores table
     public void OnClickReset()
     {
-        PlayerPrefs.DeleteKey("Level_3_High_Scores_Table");
+        PlayerPrefs.DeleteKey("Level_" + level.ToString() + "_High_Scores_Table");
         PlayerPrefs.Save();
-        SceneManager.LoadScene("Level_3_High_Scores");
+        SceneManager.LoadScene("Level_" + level.ToString() + "_High_Scores");
     }
 
 }
