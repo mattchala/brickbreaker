@@ -14,6 +14,9 @@ public class SettingsController : MonoBehaviour
     [SerializeField] private Slider screenShakeSlider = null;
     [SerializeField] private Text screenShakeTextUI = null;
 
+    [SerializeField] private Slider playerDifficultySlider = null;
+    [SerializeField] private Text playerDifficultyTextUI = null;
+
     private void Start()
     {
         LoadSettings();
@@ -24,10 +27,12 @@ public class SettingsController : MonoBehaviour
         float musicVolumeValue = PlayerPrefs.GetFloat("MusicVolume");
         float animationsOn = PlayerPrefs.GetFloat("AnimationsOn");
         float screenShakeOn = PlayerPrefs.GetFloat("ScreenShakeOn");
+        float playerDifficulty = PlayerPrefs.GetFloat("PlayerDifficulty");
         
         musicVolumeSlider.value = musicVolumeValue;
         animationsSlider.value = animationsOn;
         screenShakeSlider.value = screenShakeOn;
+        playerDifficultySlider.value = playerDifficulty;
     }
 
     public void SaveSettings()
@@ -40,6 +45,9 @@ public class SettingsController : MonoBehaviour
 
         float screenShake = screenShakeSlider.value;
         PlayerPrefs.SetFloat("ScreenShakeOn", screenShake);
+
+        float playerDifficulty = playerDifficultySlider.value;
+        PlayerPrefs.SetFloat("PlayerDifficulty", playerDifficulty);
         
         LoadSettings();
     }
@@ -57,5 +65,24 @@ public class SettingsController : MonoBehaviour
     public void ScreenShakeSlider(float screenShake)
     {
         screenShakeTextUI.text = screenShake == 1.0 ? "On" : "Off";
+    }
+
+    public void PlayerDifficultySlider(float playerDifficulty)
+    {
+        switch(playerDifficulty) 
+        {
+        case 0.0f:
+            playerDifficultyTextUI.text = "Easy";
+            break;
+        case 1.0f:
+            playerDifficultyTextUI.text = "Medium";
+            break;
+        case 2.0f:
+            playerDifficultyTextUI.text = "Hard";
+            break;
+        default:
+            playerDifficultyTextUI.text = "Medium";
+            break;
+        }
     }
 }

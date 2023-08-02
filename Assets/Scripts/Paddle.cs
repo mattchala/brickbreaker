@@ -15,6 +15,20 @@ public class Paddle : MonoBehaviour
     // MATT: Unity built-in 
     private void Start()
     {
+        // Adjust width of player's paddle based on difficulty
+        // TODO: Make this work with paddle animator enabled
+        if (this.tag == "Player1")
+        {
+            if (PlayerPrefs.GetFloat("PlayerDifficulty") == 0.0f)
+            {
+                this.transform.localScale = new Vector3(5f, 0.7f, 1f); // JOSH: Paddle is 20% wider on easy difficulty
+            }
+            if (PlayerPrefs.GetFloat("PlayerDifficulty") == 1.0f)
+            {
+                this.transform.localScale = new Vector3(4.5f, 0.7f, 1f); // JOSH: Paddle is 10% wider on medium difficulty
+            }
+        }
+
         screen_shake = GameObject.FindGameObjectWithTag("CameraShake").GetComponent<CameraShake>();
     }
 

@@ -27,6 +27,19 @@ public class Ball : MonoBehaviour
     {
         screen_shake = GameObject.FindGameObjectWithTag("CameraShake").GetComponent<CameraShake>();
 
+        // Adjust speed of player's ball based on difficulty
+        if (this.tag == "Player1")
+        {
+            if (PlayerPrefs.GetFloat("PlayerDifficulty") == 0.0f)
+            {
+                speed *= 0.8f; // JOSH: Speed is 80% on easy difficulty
+            }
+            if (PlayerPrefs.GetFloat("PlayerDifficulty") == 1.0f)
+            {
+                speed *= 0.9f; // JOSH: Speed is 90% on medium difficulty
+            }
+        }
+
         // MATT: instead of immediately calling the set_trajectory function, we wait 1 second and then fire it off
         StartCoroutine("ResetBall");
     }
