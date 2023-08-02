@@ -3,10 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class Brick : MonoBehaviour
 {
-    public int brick_health = 3;
+    public int brick_health = 2;
     public SpriteRenderer brick_sprite;
     public Color32 redish;
-    public Color32 orangeish;
+    //public Color32 orangeish;
     public Color32 greenish;
     public Color32[] brick_states;
     public Animator brick_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
@@ -20,9 +20,10 @@ public class Brick : MonoBehaviour
         // MATT: cash sprite renderer in brick sprite variable and fill brick states array with 3 colors, had to do it here in Awake since I couldn't just initialize them with the values
         this.brick_sprite = GetComponent<SpriteRenderer>();   
         this.redish = new Color32(251, 80, 80, 255);
-        this.orangeish = new Color32(255, 184, 54, 255);
+        //this.orangeish = new Color32(255, 184, 54, 255);
         this.greenish = new Color32(139, 255, 131, 255);
-        this.brick_states = new Color32[3] { greenish, orangeish, redish };
+        //this.brick_states = new Color32[3] { greenish, orangeish, redish };
+        this.brick_states = new Color32[2] { greenish, redish };
     }
 
 
