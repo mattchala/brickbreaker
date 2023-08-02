@@ -9920,7 +9920,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5d3e3674b7dd9f47be9c7b0a7582e0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  brick_health: 3
+  brick_health: 2
   brick_sprite: {fileID: 0}
   redish:
     serializedVersion: 2
