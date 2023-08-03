@@ -4209,6 +4209,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerLifeCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 2315401677914361134, guid: 183128a1d3bb14a22b859bd7cfc3edca,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ff83f704c8d828b43975945378e60bb3, type: 2}
     - target: {fileID: 3259802697728061677, guid: 183128a1d3bb14a22b859bd7cfc3edca,
         type: 3}
       propertyPath: m_Name

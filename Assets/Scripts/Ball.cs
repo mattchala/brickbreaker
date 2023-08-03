@@ -84,6 +84,7 @@ public class Ball : MonoBehaviour
             ball_animator.Play("bounce_1");
             EmitParticles(collision);
         }
+
         if (this.tag == "Player1") // JOSH: Disable screenshake for player 2
         {
             if (PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && collision.gameObject.name == "Brick")
