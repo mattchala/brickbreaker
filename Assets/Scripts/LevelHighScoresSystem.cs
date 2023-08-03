@@ -11,6 +11,8 @@ public class LevelHighScoresSystem : MonoBehaviour
     
     public static LevelHighScoresSystem Instance;
     public int level;
+    public int difficultyNum;
+    string difficulty;
 
     // References to table, container, and template for high scores
     private Transform highScoresTable;
@@ -26,7 +28,21 @@ public class LevelHighScoresSystem : MonoBehaviour
 
         Scene loadedScene = SceneManager.GetActiveScene();
         string scene = loadedScene.name;
-        if (scene == "Level_" + level.ToString() + "_High_Scores")
+
+        if (difficultyNum == 1) 
+        {
+            difficulty = "Easy";
+        }
+        else if (difficultyNum == 2) 
+        {
+            difficulty = "Medium";
+        }
+        else if (difficultyNum == 3) 
+        {
+            difficulty = "Hard";
+        }
+        
+        if (scene == "Level_" + level.ToString() + "_High_Scores_" + difficulty)
         {
             // Find table, container, and template objects and update references
             highScoresTable = transform.Find("HighScoresTable");
@@ -38,7 +54,7 @@ public class LevelHighScoresSystem : MonoBehaviour
         
 
             // Get high scores list and convert to string
-            string jsonHighScoresString = PlayerPrefs.GetString("Level_" + level.ToString() + "_High_Scores_Table");
+            string jsonHighScoresString = PlayerPrefs.GetString("Level_" + level.ToString() + "_High_Scores_Table_" + difficulty);
             HighScores highScores = JsonUtility.FromJson<HighScores>(jsonHighScoresString);
 
             // Create new high scores list if none exists
@@ -98,13 +114,13 @@ public class LevelHighScoresSystem : MonoBehaviour
         transformList.Add(highScoresTransform);
     }
 
-    public void NewHighScore(int score, string playerName, string level_num)
+    public void NewHighScore(int score, string playerName, string level_num, string difficultyLevel)
     {
         // Create new entry for high scores
         HighScoresEntry highScoresEntry = new HighScoresEntry{score = score, playerName = playerName};
         
         // Load the previously saved high scores
-        string jsonHighScoresString = PlayerPrefs.GetString("Level_" + level_num + "_High_Scores_Table");
+        string jsonHighScoresString = PlayerPrefs.GetString("Level_" + level_num + "_High_Scores_Table_" + difficultyLevel);
         HighScores highScores = JsonUtility.FromJson<HighScores>(jsonHighScoresString);
 
         // Create new high scores list if none exists
@@ -163,7 +179,7 @@ public class LevelHighScoresSystem : MonoBehaviour
         
         // Convert updated list to JSON and save to PlayerPrefs
         string jsonHighScoresEntryList = JsonUtility.ToJson(highScores);
-        PlayerPrefs.SetString("Level_" + level_num + "_High_Scores_Table", jsonHighScoresEntryList);
+        PlayerPrefs.SetString("Level_" + level_num + "_High_Scores_Table_" + difficultyLevel, jsonHighScoresEntryList);
         PlayerPrefs.Save();
     }
 
@@ -190,9 +206,22 @@ public class LevelHighScoresSystem : MonoBehaviour
     // Reset button to clear out high scores table
     public void OnClickReset()
     {
-        PlayerPrefs.DeleteKey("Level_" + level.ToString() + "_High_Scores_Table");
+        if (difficultyNum == 1) 
+        {
+            difficulty = "Easy";
+        }
+        else if (difficultyNum == 2) 
+        {
+            difficulty = "Medium";
+        }
+        else if (difficultyNum == 3) 
+        {
+            difficulty = "Hard";
+        }
+
+        PlayerPrefs.DeleteKey("Level_" + level.ToString() + "_High_Scores_Table_" + difficulty);
         PlayerPrefs.Save();
-        SceneManager.LoadScene("Level_" + level.ToString() + "_High_Scores");
+        SceneManager.LoadScene("Level_" + level.ToString() + "_High_Scores_" + difficulty);
     }
 
 }
