@@ -1815,6 +1815,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 7.369999
       objectReference: {fileID: 0}
+    - target: {fileID: 4253389755465454753, guid: 42426001dad37486d862fd2b5fe26aaf,
+        type: 3}
+      propertyPath: sparks
+      value: 
+      objectReference: {fileID: 532930934}
     - target: {fileID: 4448666336486842765, guid: 42426001dad37486d862fd2b5fe26aaf,
         type: 3}
       propertyPath: AIScoreText
@@ -2001,6 +2006,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &532930934 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4540312414736616358, guid: 42426001dad37486d862fd2b5fe26aaf,
+    type: 3}
+  m_PrefabInstance: {fileID: 532930929}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &584216973 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4692720703484047686, guid: 025cc73e0a277074ea93780de332d561,
@@ -6849,6 +6860,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 8803304030096724924, guid: 183128a1d3bb14a22b859bd7cfc3edca,
+        type: 3}
+      propertyPath: sparks
+      value: 
+      objectReference: {fileID: 1879233882}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -6907,6 +6923,12 @@ MonoBehaviour:
 --- !u!20 &1879233881 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2825041263020407032, guid: 183128a1d3bb14a22b859bd7cfc3edca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1879233877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1879233882 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 9092454527563451579, guid: 183128a1d3bb14a22b859bd7cfc3edca,
     type: 3}
   m_PrefabInstance: {fileID: 1879233877}
   m_PrefabAsset: {fileID: 0}
