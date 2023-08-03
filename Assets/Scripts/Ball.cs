@@ -64,17 +64,14 @@ public class Ball : MonoBehaviour
             paddle.transform.localPosition = new Vector3(0, paddle.transform.localPosition.y, paddle.transform.localPosition.z);
             StartCoroutine("ResetBall");
 
-
-            // Debug.Log("LOST BALL");
-            PaddleAgent.Instance.AddReward(-10f);
-            PaddleAgent.Instance.EndEpisode();
-
             if (this.tag == "Player1")
             {
                 GameManager.Instance.LosePlayerLife(); 
             }
             if (this.tag == "Player2")
             {
+                PaddleAgent.Instance.AddReward(-10f);
+                PaddleAgent.Instance.EndEpisode();
                 GameManager.Instance.LoseAILife(); 
             }
         }
