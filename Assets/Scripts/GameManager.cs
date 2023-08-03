@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
             // for (int i=0; i < Instance.bricks.Length; i++)
             // {
             //     Instance.bricks[i].gameObject.SetActive(true);
-            //     Instance.bricks[i].brick_health = 3;
+            //     Instance.bricks[i].brick_health = 2;
             // }
         }
     }
