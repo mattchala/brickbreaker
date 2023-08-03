@@ -117,10 +117,28 @@ public class GameManager : MonoBehaviour
         // Check what level was being played
         Scene loadedScene = SceneManager.GetActiveScene();
         string scene = loadedScene.name;
+        string difficulty = "";
         
-        // Update high score table for specified level
+        // Get current level
         string level_num = scene.Remove(0, 6);
-        LevelHighScoresSystem.Instance.NewHighScore(ScoreManager.Instance.playerScore, name, level_num);
+
+        // Get current player difficulty
+        float difficultyNum = PlayerPrefs.GetFloat("PlayerDifficulty");
+        if (difficultyNum == 0.0f) 
+        {
+            difficulty = "Easy";
+        }
+        else if (difficultyNum == 1.0f) 
+        {
+            difficulty = "Medium";
+        }
+        else if (difficultyNum == 2.0f) 
+        {
+            difficulty = "Hard";
+        }
+        
+        // Update high scores table
+        LevelHighScoresSystem.Instance.NewHighScore(ScoreManager.Instance.playerScore, name, level_num, difficulty);
     }
 
     public void OnClickHighScores()
