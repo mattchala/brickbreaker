@@ -2368,6 +2368,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnbreakableBrick
       objectReference: {fileID: 0}
+    - target: {fileID: 5009888846911956923, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205463349227688440, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837037295574190207, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 7829303126006860358, guid: 78bf3d5c7a01141ed956544ff3ecd177,
         type: 3}
       propertyPath: m_RootOrder
@@ -2422,6 +2437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524537774215642871, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3003,10 +3023,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 39.42
       objectReference: {fileID: 0}
+    - target: {fileID: 1113155455116700864, guid: 9f82ae9200c78654ba17d68e06a84021,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 6143448305948015546, guid: 9f82ae9200c78654ba17d68e06a84021,
         type: 3}
       propertyPath: m_Name
       value: PlayerName
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143448305948015546, guid: 9f82ae9200c78654ba17d68e06a84021,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 7712816115414828951, guid: 9f82ae9200c78654ba17d68e06a84021,
         type: 3}
@@ -3090,6 +3120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AIName
+      objectReference: {fileID: 0}
+    - target: {fileID: 6559320433309921119, guid: aefb1bc402a5e3749a333eed0b7179c2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
       objectReference: {fileID: 0}
     - target: {fileID: 9196101514344986881, guid: aefb1bc402a5e3749a333eed0b7179c2,
         type: 3}
@@ -4045,6 +4080,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnbreakableBrick (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5009888846911956923, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205463349227688440, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837037295574190207, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 7829303126006860358, guid: 78bf3d5c7a01141ed956544ff3ecd177,
         type: 3}
       propertyPath: m_RootOrder
@@ -4099,6 +4149,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524537774215642871, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4342,6 +4397,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnbreakableBrick (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5009888846911956923, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205463349227688440, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837037295574190207, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 7829303126006860358, guid: 78bf3d5c7a01141ed956544ff3ecd177,
         type: 3}
       propertyPath: m_RootOrder
@@ -4396,6 +4466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524537774215642871, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4936,6 +5011,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnbreakableBrick (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5009888846911956923, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205463349227688440, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837037295574190207, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 7829303126006860358, guid: 78bf3d5c7a01141ed956544ff3ecd177,
         type: 3}
       propertyPath: m_RootOrder
@@ -4991,6 +5081,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8524537774215642871, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5014,6 +5109,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UnbreakableBrick (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5009888846911956923, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205463349227688440, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837037295574190207, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 7829303126006860358, guid: 78bf3d5c7a01141ed956544ff3ecd177,
         type: 3}
@@ -5069,6 +5179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524537774215642871, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5405,6 +5520,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnbreakableBrick (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 5009888846911956923, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205463349227688440, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837037295574190207, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 7829303126006860358, guid: 78bf3d5c7a01141ed956544ff3ecd177,
         type: 3}
       propertyPath: m_RootOrder
@@ -5459,6 +5589,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524537774215642871, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5654,6 +5789,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnbreakableBrick
       objectReference: {fileID: 0}
+    - target: {fileID: 5009888846911956923, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205463349227688440, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837037295574190207, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 7829303126006860358, guid: 78bf3d5c7a01141ed956544ff3ecd177,
         type: 3}
       propertyPath: m_RootOrder
@@ -5708,6 +5858,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524537774215642871, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6055,6 +6210,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: UnbreakableBrick
       objectReference: {fileID: 0}
+    - target: {fileID: 5009888846911956923, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5205463349227688440, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837037295574190207, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 7829303126006860358, guid: 78bf3d5c7a01141ed956544ff3ecd177,
         type: 3}
       propertyPath: m_RootOrder
@@ -6109,6 +6279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8524537774215642871, guid: 78bf3d5c7a01141ed956544ff3ecd177,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

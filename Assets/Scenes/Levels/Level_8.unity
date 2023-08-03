@@ -2979,6 +2979,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AIName
       objectReference: {fileID: 0}
+    - target: {fileID: 6559320433309921119, guid: aefb1bc402a5e3749a333eed0b7179c2,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player2
+      objectReference: {fileID: 0}
     - target: {fileID: 9196101514344986881, guid: aefb1bc402a5e3749a333eed0b7179c2,
         type: 3}
       propertyPath: m_Pivot.x
@@ -9597,10 +9602,20 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 37.7
       objectReference: {fileID: 0}
+    - target: {fileID: 1113155455116700864, guid: 9f82ae9200c78654ba17d68e06a84021,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
+      objectReference: {fileID: 0}
     - target: {fileID: 6143448305948015546, guid: 9f82ae9200c78654ba17d68e06a84021,
         type: 3}
       propertyPath: m_Name
       value: PlayerName
+      objectReference: {fileID: 0}
+    - target: {fileID: 6143448305948015546, guid: 9f82ae9200c78654ba17d68e06a84021,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player1
       objectReference: {fileID: 0}
     - target: {fileID: 7712816115414828951, guid: 9f82ae9200c78654ba17d68e06a84021,
         type: 3}
