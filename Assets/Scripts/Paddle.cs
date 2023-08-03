@@ -63,6 +63,9 @@ public class Paddle : MonoBehaviour
             if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
             {
                 paddle_animator.Play("wall_bump");
+            }
+            if (PlayerPrefs.GetFloat("ParticlesOn") == 1)
+            {
                 EmitParticles(collision);
             }
         }
@@ -76,6 +79,9 @@ public class Paddle : MonoBehaviour
             if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
             {
                 paddle_animator.Play("wall_bump");
+            }
+            if (PlayerPrefs.GetFloat("ParticlesOn") == 1)
+            {
                 EmitParticles(collision);
             }
         }
@@ -89,12 +95,20 @@ public class Paddle : MonoBehaviour
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             this.move_dir += Vector2.left;
-            dust_left.Play();
+            
+            if (PlayerPrefs.GetFloat("ParticlesOn") == 1)
+            {
+                dust_left.Play();
+            }
         }
         if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             this.move_dir += Vector2.right;
-            dust_right.Play();
+
+            if (PlayerPrefs.GetFloat("ParticlesOn") == 1)
+            {
+                dust_right.Play();
+            }
         }
         if (!(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) &&
             !(Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)))

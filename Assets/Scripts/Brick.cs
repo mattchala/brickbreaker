@@ -39,9 +39,7 @@ public class Brick : MonoBehaviour
     {
         if (collision.gameObject.name == "Ball")
         {
-
             HandleHit();
-
         }    
     }
 
@@ -53,8 +51,11 @@ public class Brick : MonoBehaviour
         this.brick_health--;
         if (this.brick_health <= 0)
         {
-            // TODO play destroy sound
-            EmitParticles();
+            if (PlayerPrefs.GetFloat("ParticlesOn") == 1)
+            {
+                EmitParticles();
+            }
+
             brick_animator.Play("brick_destroy");
             if (this.tag == "Player1")
             {
@@ -68,7 +69,6 @@ public class Brick : MonoBehaviour
         else
         {
             brick_animator.Play("brick_hit");
-            // TODO play collision sound
             SetColor();
         }
 

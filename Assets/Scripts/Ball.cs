@@ -82,6 +82,10 @@ public class Ball : MonoBehaviour
         if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
         {
             ball_animator.Play("bounce_1");
+        }
+
+        if (PlayerPrefs.GetFloat("ParticlesOn") == 1)
+        {
             EmitParticles(collision);
         }
 
