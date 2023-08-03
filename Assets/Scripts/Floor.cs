@@ -18,15 +18,15 @@ public class Floor : MonoBehaviour
     // MATT: handle collisions
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.name == "Ball" && PlayerPrefs.GetFloat("ScreenShakeOn") == 1)
+        if (collision.gameObject.name == "Ball" && PlayerPrefs.GetFloat("ScreenShakeOn") == 1 && this.tag == "Player1")
+        {
+            screen_shake.LifeLostShake();
+        }
+
+        if (collision.gameObject.name == "Ball" && PlayerPrefs.GetFloat("ParticlesOn") == 1)
         {
             death_chunks.transform.position = collision.GetContact(0).point;
             death_chunks.Play();
-            
-            if (this.tag == "Player1")
-            {
-                screen_shake.LifeLostShake();
-            }
         }
     }
 }
