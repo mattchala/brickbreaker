@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i=0; i < Instance.bricks.Length; i++)
         {
-            if (Instance.bricks[i].gameObject.activeInHierarchy)
+            if (Instance.bricks[i].gameObject.activeInHierarchy && Instance.bricks[i].gameObject.tag == "Player1") // AND tag is player1
             {
                 return false;
             }
