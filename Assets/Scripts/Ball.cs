@@ -41,7 +41,10 @@ public class Ball : MonoBehaviour
         }
 
         // MATT: instead of immediately calling the set_trajectory function, we wait 1 second and then fire it off
+        if (this.tag == "Player1" || PlayerPrefs.GetFloat("GameMode") == 1.0f)
+        {
         StartCoroutine("ResetBall");
+        }
     }
 
 
