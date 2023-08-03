@@ -6290,6 +6290,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 2315401677914361134, guid: 183128a1d3bb14a22b859bd7cfc3edca,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ff83f704c8d828b43975945378e60bb3, type: 2}
     - target: {fileID: 3259802697728061677, guid: 183128a1d3bb14a22b859bd7cfc3edca,
         type: 3}
       propertyPath: m_TagString
@@ -6412,6 +6417,12 @@ MonoBehaviour:
 --- !u!20 &1087621182 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2825041263020407032, guid: 183128a1d3bb14a22b859bd7cfc3edca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1087621178}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1087621183 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2315401677914361134, guid: 183128a1d3bb14a22b859bd7cfc3edca,
     type: 3}
   m_PrefabInstance: {fileID: 1087621178}
   m_PrefabAsset: {fileID: 0}
@@ -12886,7 +12897,7 @@ PrefabInstance:
         type: 3}
       propertyPath: shake_animator
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1087621183}
     - target: {fileID: 4682097679725762045, guid: 9274f44a5edea8c4cac5504dff015a75,
         type: 3}
       propertyPath: m_Name

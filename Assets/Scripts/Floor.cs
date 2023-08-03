@@ -22,7 +22,11 @@ public class Floor : MonoBehaviour
         {
             death_chunks.transform.position = collision.GetContact(0).point;
             death_chunks.Play();
-            screen_shake.LifeLostShake();
+            
+            if (this.tag == "Player1")
+            {
+                screen_shake.LifeLostShake();
+            }
         }
     }
 }
