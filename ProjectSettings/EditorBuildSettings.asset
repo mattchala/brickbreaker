@@ -45,32 +45,104 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Selection.unity
     guid: 0f22e41cf69e340f6b3f95c594c99e3a
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Menu.unity
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Menu.unity
     guid: f7ff71ea69d6a0d49a6f85a7e00cff22
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Tables/Level_1_High_Scores.unity
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Difficulty_Menus/Level_1_High_Scores_Difficulty.unity
+    guid: 8d7c7dc29e5eeea47aa7f24cc29a81b9
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_1_High_Scores_Easy.unity
     guid: f72d2c1d80a6e954ba76cd11b68043ee
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Tables/Level_2_High_Scores.unity
-    guid: 61696feee98557b478962fea1264fd28
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_1_High_Scores_Medium.unity
+    guid: d7baf7134bb6cc4428a04151094127b5
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Tables/Level_3_High_Scores.unity
-    guid: 1935a40eec16eb34d91a3111804de972
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_1_High_Scores_Hard.unity
+    guid: 42cd75b72daffc44681fd312efa01fd3
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Tables/Level_4_High_Scores.unity
-    guid: 37837c1c7b461a249ac3e18fdbf15f42
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Difficulty_Menus/Level_2_High_Scores_Difficulty.unity
+    guid: 72683f63efac188498f5887254f9649a
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Tables/Level_5_High_Scores.unity
-    guid: f3644e8a1b8ff4949b03cfef5aabeb7a
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_2_High_Scores_Easy.unity
+    guid: 3c7c968e7b73b0048a1a99ca5ca3f871
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Tables/Level_6_High_Scores.unity
-    guid: d12c92af387ffef44a2d169133a1d20b
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_2_High_Scores_Medium.unity
+    guid: 8cb55fa4e8e9f014baf89600805069c0
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Tables/Level_7_High_Scores.unity
-    guid: 7255ddb3940a56c499fc4db4f1da00a9
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_2_High_Scores_Hard.unity
+    guid: 0339609e91a1ba84baedf4a8ea1361f4
   - enabled: 1
-    path: Assets/Scenes/High_Scores_Tables/Level_8_High_Scores.unity
-    guid: 22ffcab018bf87d41a9bc4ec390762be
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Difficulty_Menus/Level_3_High_Scores_Difficulty.unity
+    guid: 953a7931a3a789941b075926c17f0f78
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_3_High_Scores_Easy.unity
+    guid: 0611d9a9d169fdb4d871b01e17d32739
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_3_High_Scores_Medium.unity
+    guid: ba19d3c0fddbf1d49a4f6c5f3dc867c8
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_3_High_Scores_Hard.unity
+    guid: c6c16495d3e0422469d92ed9bb13a8e0
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Difficulty_Menus/Level_4_High_Scores_Difficulty.unity
+    guid: f075feafaebc21945a15c0145b8f94e7
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_4_High_Scores_Easy.unity
+    guid: 6e1cb6a36d988e94ba8f53d7a0dc974c
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_4_High_Scores_Medium.unity
+    guid: 69c6dff637454aa4c901b3df5287cf9a
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_4_High_Scores_Hard.unity
+    guid: b2918842cc6fa164ebad79cdf97ec806
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Difficulty_Menus/Level_5_High_Scores_Difficulty.unity
+    guid: ffe81f9bcf48fa24a9fe27004b759e19
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_5_High_Scores_Easy.unity
+    guid: 9c6e10920a4bcb146be31a7754b82652
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_5_High_Scores_Medium.unity
+    guid: d29b1fc5a89a2684ebfa04cf376cd826
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_5_High_Scores_Hard.unity
+    guid: fde69016a9ac4db4daefbdd8e700a468
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Difficulty_Menus/Level_6_High_Scores_Difficulty.unity
+    guid: db433a3caa9d1a9408d12ca87f9d326d
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_6_High_Scores_Easy.unity
+    guid: 67d166c7d517a24458382bc0de12d3d9
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_6_High_Scores_Medium.unity
+    guid: db5e29c737e560d4c966eef8ce687c01
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_6_High_Scores_Hard.unity
+    guid: 10f8b7117b3fbcb4d9cad2c3266e9128
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Difficulty_Menus/Level_7_High_Scores_Difficulty.unity
+    guid: 9677885a2d8d98943bf7aaf074106847
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_7_High_Scores_Easy.unity
+    guid: 733777aaaf5b2144d872fbfdf17c379d
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_7_High_Scores_Medium.unity
+    guid: 8338d62dda2fcf24291b09efe68cb356
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_7_High_Scores_Hard.unity
+    guid: b7fd01b6215318046b91d1e7c113f776
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Difficulty_Menus/Level_8_High_Scores_Difficulty.unity
+    guid: 96bc2e9278fe030459dfa25c3940f676
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_8_High_Scores_Easy.unity
+    guid: ab6bbc09ab47b814e8fad3dbfb865da0
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_8_High_Scores_Medium.unity
+    guid: 18cf4963d3cf8bf49b1781656e5f6fed
+  - enabled: 1
+    path: Assets/Scenes/High_Scores_Menu/High_Scores_Tables/Level_8_High_Scores_Hard.unity
+    guid: 3db4ffa5ae474864aaceb337e80592a6
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 61bcb26e7bee84e209dc490cd14921ef
