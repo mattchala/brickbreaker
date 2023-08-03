@@ -76,6 +76,7 @@ public class Paddle : MonoBehaviour
             if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
             {
                 paddle_animator.Play("wall_bump");
+                EmitParticles(collision);
             }
         }
     }
