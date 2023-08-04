@@ -4,31 +4,47 @@ public class Paddle : MonoBehaviour
 {
     public Vector2 move_dir { get; private set; }
     public float move_speed = 50f;
-    public float max_x_pos = 16f;
+    private float max_x_pos = 16f;
     private CameraShake screen_shake;
     public Animator paddle_animator;    // MATT: this creates an empty slot in unity editor, drag the desired animator there
     public ParticleSystem smoke;
     public ParticleSystem sparks;
     public ParticleSystem dust_left;
     public ParticleSystem dust_right;
+    private string ball_collide_anim;
+    private string wall_bump_anim;
 
     // MATT: Unity built-in 
     private void Start()
     {
         // Adjust width of player's paddle based on difficulty
+        // MATT: sets the corresponding animations in variables and plays the initial idle anim relative to the size set by the difficulty level
+        // MATT: adjusts max_x_pos to accomodate adjustment in paddle size
         if (this.tag == "Player1")
         {
             if (PlayerPrefs.GetFloat("PlayerDifficulty") == 0.0f)
             {
-                this.transform.localScale = new Vector3(5f, 0.7f, 1f); // JOSH: Paddle is 20% wider on easy difficulty
-                // MATT: TODO set wall bump, ball_collide, and idle anims here in a variable that is passed to animator, also set max_x_pos too
-                // play corresponding paddle idle - remove first line as a result
+                // Easy Difficulty
+                ball_collide_anim = "ball_collide_easy";
+                wall_bump_anim = "wall_bump_easy";
+                paddle_animator.Play("paddle_idle_easy");
+                max_x_pos = 15.4f;
             }
-            if (PlayerPrefs.GetFloat("PlayerDifficulty") == 1.0f)
+            else if (PlayerPrefs.GetFloat("PlayerDifficulty") == 1.0f)
             {
-                this.transform.localScale = new Vector3(4.5f, 0.7f, 1f); // JOSH: Paddle is 10% wider on medium difficulty
-                // MATT: TODO set wall bump, ball_collide, and idle anims here in a variable that is passed to animator, also set max_x_pos too
-                // play corresponding paddle idle - remove first line as a result
+                // Medium Difficulty
+                ball_collide_anim = "ball_collide_medium";
+                wall_bump_anim = "wall_bump_medium";
+                paddle_animator.Play("paddle_idle_medium");
+                max_x_pos = 15.7f;
+            }
+            else
+            {
+                // Hard Difficulty
+                ball_collide_anim = "ball_collide";
+                wall_bump_anim = "wall_bump";
+                paddle_animator.Play("paddle_idle");
+                max_x_pos = 16f;
             }
         }
         screen_shake = GameObject.FindGameObjectWithTag("CameraShake").GetComponent<CameraShake>();
@@ -52,7 +68,7 @@ public class Paddle : MonoBehaviour
         {
             if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
             {
-                paddle_animator.Play("ball_collide");
+                paddle_animator.Play(ball_collide_anim);
             }
         }
 
@@ -64,7 +80,7 @@ public class Paddle : MonoBehaviour
             }
             if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
             {
-                paddle_animator.Play("wall_bump");
+                paddle_animator.Play(wall_bump_anim);
             }
             if (PlayerPrefs.GetFloat("ParticlesOn") == 1)
             {
@@ -80,7 +96,7 @@ public class Paddle : MonoBehaviour
             }
             if (PlayerPrefs.GetFloat("AnimationsOn") == 1)
             {
-                paddle_animator.Play("wall_bump");
+                paddle_animator.Play(wall_bump_anim);
             }
             if (PlayerPrefs.GetFloat("ParticlesOn") == 1)
             {
