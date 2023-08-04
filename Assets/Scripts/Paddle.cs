@@ -16,19 +16,21 @@ public class Paddle : MonoBehaviour
     private void Start()
     {
         // Adjust width of player's paddle based on difficulty
-        // TODO: Make this work with paddle animator enabled
         if (this.tag == "Player1")
         {
             if (PlayerPrefs.GetFloat("PlayerDifficulty") == 0.0f)
             {
                 this.transform.localScale = new Vector3(5f, 0.7f, 1f); // JOSH: Paddle is 20% wider on easy difficulty
+                // MATT: TODO set wall bump, ball_collide, and idle anims here in a variable that is passed to animator, also set max_x_pos too
+                // play corresponding paddle idle - remove first line as a result
             }
             if (PlayerPrefs.GetFloat("PlayerDifficulty") == 1.0f)
             {
                 this.transform.localScale = new Vector3(4.5f, 0.7f, 1f); // JOSH: Paddle is 10% wider on medium difficulty
+                // MATT: TODO set wall bump, ball_collide, and idle anims here in a variable that is passed to animator, also set max_x_pos too
+                // play corresponding paddle idle - remove first line as a result
             }
         }
-
         screen_shake = GameObject.FindGameObjectWithTag("CameraShake").GetComponent<CameraShake>();
     }
 
