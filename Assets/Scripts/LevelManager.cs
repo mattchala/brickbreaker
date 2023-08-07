@@ -34,7 +34,8 @@ public class LevelManager : MonoBehaviour
         SceneManager.LoadScene("Level_" + (GameManager.Instance.level).ToString());
     }
 
-    public void AI_Level_1(){
-        SceneManager.LoadScene("AI_Level_1");
+    public void AI_Level(){
+        //SceneManager.LoadScene("AI_Level_1");
+        SceneManager.LoadScene("AI_Level_7");
     }
 }

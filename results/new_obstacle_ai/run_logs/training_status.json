@@ -1,0 +1,38 @@
+{
+    "Paddle": {
+        "checkpoints": [
+            {
+                "steps": 499974,
+                "file_path": "results\\new_obstacle_ai\\Paddle\\Paddle-499974.onnx",
+                "reward": 651.3499999046326,
+                "creation_time": 1691447745.5159075,
+                "auxillary_file_paths": [
+                    "results\\new_obstacle_ai\\Paddle\\Paddle-499974.pt"
+                ]
+            },
+            {
+                "steps": 500038,
+                "file_path": "results\\new_obstacle_ai\\Paddle\\Paddle-500038.onnx",
+                "reward": 651.3499999046326,
+                "creation_time": 1691447745.5570607,
+                "auxillary_file_paths": [
+                    "results\\new_obstacle_ai\\Paddle\\Paddle-500038.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 500038,
+            "file_path": "results\\new_obstacle_ai\\Paddle.onnx",
+            "reward": 651.3499999046326,
+            "creation_time": 1691447745.5570607,
+            "auxillary_file_paths": [
+                "results\\new_obstacle_ai\\Paddle\\Paddle-500038.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "2.0.1+cpu"
+    }
+}

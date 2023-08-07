@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/AI_Level_1.unity
     guid: 12fa039807edd484ba1817495ff967f0
   - enabled: 1
+    path: Assets/Scenes/Levels/AI_Level_7.unity
+    guid: 33b2490cc6f65444d9dc5cc88f1a0d8e
+  - enabled: 1
     path: Assets/Scenes/Levels/Level_1.unity
     guid: ac26205831e0e6a45abcb625474e3686
   - enabled: 1
