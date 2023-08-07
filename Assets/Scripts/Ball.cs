@@ -77,6 +77,11 @@ public class Ball : MonoBehaviour
                 PaddleAgent.Instance.EndEpisode();
                 GameManager.Instance.LoseAILife(); 
             }
+            if (this.tag == "Training")
+            {
+                PaddleAgent.Instance.AddReward(-10f);
+                PaddleAgent.Instance.EndEpisode();            
+            }
         }
 
         if (PlayerPrefs.GetFloat("AnimationsOn") == 1)

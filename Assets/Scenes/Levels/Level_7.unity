@@ -894,6 +894,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 109943905}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &109943908 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9018438005467382996, guid: 0ef7995768071cd46b5a552a72250888,
+    type: 3}
+  m_PrefabInstance: {fileID: 109943905}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &119685753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1686,6 +1692,12 @@ Transform:
 --- !u!4 &255010358 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7216101439423764198, guid: 0ef7995768071cd46b5a552a72250888,
+    type: 3}
+  m_PrefabInstance: {fileID: 255010356}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &255010359 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 9018438005467382996, guid: 0ef7995768071cd46b5a552a72250888,
     type: 3}
   m_PrefabInstance: {fileID: 255010356}
   m_PrefabAsset: {fileID: 0}
@@ -12123,12 +12135,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: 152c00038d838479a9de9de17aa6e1ca,
+      objectReference: {fileID: 5022602860645237092, guid: 3c701a2d58262e9459617549c9e5d728,
         type: 3}
     - target: {fileID: 2116254919199923713, guid: 42426001dad37486d862fd2b5fe26aaf,
         type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
-      value: 9
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3865260478349072853, guid: 42426001dad37486d862fd2b5fe26aaf,
         type: 3}
@@ -12265,6 +12277,21 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 8546558051254588331, guid: 42426001dad37486d862fd2b5fe26aaf,
+        type: 3}
+      propertyPath: obstacles.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8546558051254588331, guid: 42426001dad37486d862fd2b5fe26aaf,
+        type: 3}
+      propertyPath: obstacles.Array.data[0]
+      value: 
+      objectReference: {fileID: 255010359}
+    - target: {fileID: 8546558051254588331, guid: 42426001dad37486d862fd2b5fe26aaf,
+        type: 3}
+      propertyPath: obstacles.Array.data[1]
+      value: 
+      objectReference: {fileID: 109943908}
     - target: {fileID: 8834621101447530130, guid: 42426001dad37486d862fd2b5fe26aaf,
         type: 3}
       propertyPath: m_TagString
