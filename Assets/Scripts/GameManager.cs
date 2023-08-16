@@ -159,6 +159,11 @@ public class GameManager : MonoBehaviour
                     Instance.balls[i].gameObject.SetActive(false);
                 }
             }
+
+            if (playerLives <= 0)
+            {
+                SceneManager.LoadScene("Game_Over");
+            }
         }
     }
 
