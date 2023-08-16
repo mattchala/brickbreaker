@@ -130,8 +130,12 @@ public class GameManager : MonoBehaviour
                     Instance.balls[i].gameObject.SetActive(false);
                 }
             }
-            // Instance.Ball.gameObject.SetActive(false);
-            if (GameManager.Instance.CheckAIBricks())
+            if (PlayerPrefs.GetFloat("GameMode") == 0.0f)
+            {
+                SceneManager.LoadScene("Game_Over");
+            }
+
+            else if (GameManager.Instance.CheckAIBricks())
             {
                 SceneManager.LoadScene("Game_Over");
             }
