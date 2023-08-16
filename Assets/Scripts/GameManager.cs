@@ -13,6 +13,11 @@ public class GameManager : MonoBehaviour
 
     public Brick[] bricks { get; private set; }
 
+    public Ball[] balls { get; private set; }
+
+
+
+
     private void Awake()
     {
         Instance = this;
@@ -69,6 +74,20 @@ public class GameManager : MonoBehaviour
         return true;
     }
 
+    // MICHAEL: returns true if all bricks in level are deactivated
+    public bool CheckAIBricks()
+    {
+        for (int i=0; i < Instance.bricks.Length; i++)
+        {
+            if (Instance.bricks[i].gameObject.activeInHierarchy && Instance.bricks[i].gameObject.tag == "Player2") // AND tag is player2
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
     public void levelComplete()
     {    
         if (GameManager.Instance.CheckBricks())
@@ -85,27 +104,61 @@ public class GameManager : MonoBehaviour
             //     Instance.bricks[i].brick_health = 2;
             // }
         }
+
+        else if (GameManager.Instance.CheckAIBricks())
+        {
+            if (playerLives <= 0)
+            {
+                SceneManager.LoadScene("Game_Over");
+            }
+        }
     }
 
     public void LosePlayerLife()
     {
+        Instance.balls = FindObjectsOfType<Ball>();
         playerLives -= 1;
         LifeManager.Instance.UpdateLives(playerLives, 1);
         if (playerLives <= 0)
         {
             // Game over
             UpdateHighScore();
-            SceneManager.LoadScene("Game_Over");
+            for (int i=0; i < Instance.balls.Length; i++)
+            {
+                if (Instance.balls[i].gameObject.activeInHierarchy && Instance.balls[i].gameObject.tag == "Player1") // AND tag is player1
+                {
+                    Instance.balls[i].gameObject.SetActive(false);
+                }
+            }
+            // Instance.Ball.gameObject.SetActive(false);
+            if (GameManager.Instance.CheckAIBricks())
+            {
+                SceneManager.LoadScene("Game_Over");
+            }
+
+            else if (AILives <= 0)
+            {
+                SceneManager.LoadScene("Game_Over");
+            }
+
         }
     }
 
     public void LoseAILife()
     {
+        Instance.balls = FindObjectsOfType<Ball>();
         AILives -= 1;
         LifeManager.Instance.UpdateLives(AILives, 2);
         if (AILives <= 0)
         {
             // AI loss
+            for (int i=0; i < Instance.balls.Length; i++)
+            {
+                if (Instance.balls[i].gameObject.activeInHierarchy && Instance.balls[i].gameObject.tag == "Player2") // AND tag is player2
+                {
+                    Instance.balls[i].gameObject.SetActive(false);
+                }
+            }
         }
     }
 
